@@ -153,11 +153,12 @@ export default function RootLayout({
               <div className="relative group">
                 <span className="px-3 py-2 rounded-lg hover:bg-slate-800/60 hover:text-white cursor-pointer transition-colors flex items-center gap-1.5">
                   <Package className="w-3.5 h-3.5 text-amber-400" />
-                  Bundle A: Products & CRM
+                  Bundle A / Module 3: Products & BOM
                 </span>
                 <div className="absolute left-0 mt-1 w-56 bg-slate-900 border border-slate-800 rounded-xl shadow-2xl p-2 hidden group-hover:block z-50 space-y-1">
-                  <Link href="/crm/contacts" className="block px-3 py-2 rounded-lg hover:bg-slate-800 text-xs text-slate-300">Customer & Supplier CRM</Link>
                   <Link href="/products/catalog" className="block px-3 py-2 rounded-lg hover:bg-slate-800 text-xs text-slate-300">Product Master Catalog</Link>
+                  <Link href="/products/bom" className="block px-3 py-2 rounded-lg hover:bg-slate-800 text-xs text-slate-300">Bill of Materials (BOM)</Link>
+                  <Link href="/crm/contacts" className="block px-3 py-2 rounded-lg hover:bg-slate-800 text-xs text-slate-300">Customer & Supplier CRM</Link>
                   <Link href="/inventory/stock" className="block px-3 py-2 rounded-lg hover:bg-slate-800 text-xs text-slate-300">Multi-Warehouse Stock</Link>
                 </div>
               </div>
@@ -183,7 +184,7 @@ export default function RootLayout({
           <div className="flex items-center gap-4 text-slate-400 font-mono text-[11px]">
             <span>100% Platform Realized (30 Modules Complete)</span>
             <span>•</span>
-            <span>All Bundles A, B, C, D, E & F Active</span>
+            <span>Step 1 Deployment & Module 3 BOM Active</span>
           </div>
         </footer>
       </body>
