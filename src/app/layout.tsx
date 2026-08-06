@@ -12,12 +12,14 @@ import {
   Calculator, 
   ShieldAlert, 
   LayoutDashboard,
-  Sparkles
+  FileText,
+  Package,
+  Boxes
 } from 'lucide-react';
 
 export const metadata = {
   title: 'EXIM.IM — Enterprise Exim Trade SaaS Platform',
-  description: 'Multi-tenant Exim platform with AI HS Classification, Statutory Vault, Landed Cost Calculator, and Sanctions Screening.',
+  description: 'Multi-tenant Exim platform with Single-Entry Engine, AI HS Classification, Statutory Vault, Landed Cost Calculator, CRM, and Sanctions Screening.',
 };
 
 export default function RootLayout({
@@ -41,14 +43,33 @@ export default function RootLayout({
               </div>
             </Link>
 
-            {/* Quick Navigation Links */}
+            {/* Navigation Links */}
             <nav className="hidden md:flex items-center gap-1 text-xs font-semibold text-slate-300">
               <Link href="/" className="px-3 py-2 rounded-lg hover:bg-slate-800/60 hover:text-white transition-colors flex items-center gap-1.5">
                 <LayoutDashboard className="w-3.5 h-3.5 text-indigo-400" />
                 Dashboard
               </Link>
               
-              {/* Settings Dropdown / Links */}
+              {/* Single Entry Workbench Link */}
+              <Link href="/documents/single-entry-workbench" className="px-3 py-2 rounded-lg bg-indigo-950/60 border border-indigo-800/40 hover:bg-indigo-900/60 text-indigo-300 transition-colors flex items-center gap-1.5 font-bold">
+                <FileText className="w-3.5 h-3.5 text-indigo-400" />
+                Single-Entry Workbench
+              </Link>
+
+              {/* CRM / Catalog / Inventory Links */}
+              <div className="relative group">
+                <span className="px-3 py-2 rounded-lg hover:bg-slate-800/60 hover:text-white cursor-pointer transition-colors flex items-center gap-1.5">
+                  <Package className="w-3.5 h-3.5 text-amber-400" />
+                  Bundle A: Products & CRM
+                </span>
+                <div className="absolute left-0 mt-1 w-56 bg-slate-900 border border-slate-800 rounded-xl shadow-2xl p-2 hidden group-hover:block z-50 space-y-1">
+                  <Link href="/crm/contacts" className="block px-3 py-2 rounded-lg hover:bg-slate-800 text-xs text-slate-300">Customer & Supplier CRM</Link>
+                  <Link href="/products/catalog" className="block px-3 py-2 rounded-lg hover:bg-slate-800 text-xs text-slate-300">Product Master Catalog</Link>
+                  <Link href="/inventory/stock" className="block px-3 py-2 rounded-lg hover:bg-slate-800 text-xs text-slate-300">Multi-Warehouse Stock</Link>
+                </div>
+              </div>
+
+              {/* Module 1 Settings */}
               <div className="relative group">
                 <span className="px-3 py-2 rounded-lg hover:bg-slate-800/60 hover:text-white cursor-pointer transition-colors flex items-center gap-1.5">
                   <Building2 className="w-3.5 h-3.5 text-indigo-400" />
@@ -62,11 +83,11 @@ export default function RootLayout({
                 </div>
               </div>
 
-              {/* Compliance Links */}
+              {/* Module 2 Compliance */}
               <div className="relative group">
                 <span className="px-3 py-2 rounded-lg hover:bg-slate-800/60 hover:text-white cursor-pointer transition-colors flex items-center gap-1.5">
                   <Network className="w-3.5 h-3.5 text-emerald-400" />
-                  Module 2: Compliance Suite
+                  Module 2: Compliance
                 </span>
                 <div className="absolute left-0 mt-1 w-56 bg-slate-900 border border-slate-800 rounded-xl shadow-2xl p-2 hidden group-hover:block z-50 space-y-1">
                   <Link href="/compliance/hs-classifier" className="block px-3 py-2 rounded-lg hover:bg-slate-800 text-xs text-slate-300">AI HS Code Classifier</Link>
@@ -95,11 +116,11 @@ export default function RootLayout({
             &copy; 2026 EXIM.IM SaaS Platform. Enterprise Exim Multi-Tenant Infrastructure.
           </div>
           <div className="flex items-center gap-4 text-slate-400 font-mono text-[11px]">
-            <span>Module 1 & 2 Active</span>
+            <span>Single-Entry Hub Active</span>
             <span>•</span>
-            <span>WCO 2026 Tariff Engine</span>
+            <span>Module 1 & 2 & Bundle A Active</span>
             <span>•</span>
-            <span>OFAC / UNSC / EU Sanctions Live</span>
+            <span>OFAC / UNSC Live</span>
           </div>
         </footer>
       </body>
