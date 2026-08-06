@@ -41,7 +41,7 @@ import {
 
 export const metadata = {
   title: 'EXIM.IM — Enterprise Exim Trade SaaS Platform',
-  description: 'Complete 30-Module Exim Platform with Developer API Center, Webhook Subscriptions (HMAC SHA-256), Statutory Vault, 10-Dashboard Intelligence Suite, and Global Trade Infrastructure.',
+  description: 'Complete 30-Module Exim Platform with Multi-Currency Finance & Forex Treasury, Developer API Center, Statutory Vault, 10-Dashboard Intelligence Suite, and Global Trade Infrastructure.',
 };
 
 export default function RootLayout({
@@ -72,6 +72,21 @@ export default function RootLayout({
                 Dashboard
               </Link>
 
+              {/* Module 20 Banking, Finance & Forex Treasury Links */}
+              <div className="relative group">
+                <span className="px-3 py-2 rounded-lg bg-indigo-950/60 border border-indigo-800/40 hover:bg-indigo-900/60 text-indigo-300 cursor-pointer transition-colors flex items-center gap-1.5 font-bold">
+                  <Landmark className="w-3.5 h-3.5 text-indigo-400" />
+                  Banking & Finance
+                </span>
+                <div className="absolute left-0 mt-1 w-64 bg-slate-900 border border-slate-800 rounded-xl shadow-2xl p-2 hidden group-hover:block z-50 space-y-1">
+                  <Link href="/finance/multi-currency-invoices" className="block px-3 py-2 rounded-lg hover:bg-slate-800 text-xs text-slate-300">Multi-Currency Invoices (LUT)</Link>
+                  <Link href="/finance/forex-treasury" className="block px-3 py-2 rounded-lg hover:bg-slate-800 text-xs text-slate-300">Forex Realized Gain/Loss</Link>
+                  <Link href="/banking/lc-auditor" className="block px-3 py-2 rounded-lg hover:bg-slate-800 text-xs text-slate-300">Letter of Credit UCP 600 Auditor</Link>
+                  <Link href="/banking/edpms-reconciliation" className="block px-3 py-2 rounded-lg hover:bg-slate-800 text-xs text-slate-300">eBRC & EDPMS Reconciliation</Link>
+                  <Link href="/incentives/export-ledger" className="block px-3 py-2 rounded-lg hover:bg-slate-800 text-xs text-slate-300">Export Incentives (RoDTEP)</Link>
+                </div>
+              </div>
+
               {/* Developer API & Webhooks Links */}
               <div className="relative group">
                 <span className="px-3 py-2 rounded-lg bg-indigo-950/60 border border-indigo-800/40 hover:bg-indigo-900/60 text-indigo-300 cursor-pointer transition-colors flex items-center gap-1.5 font-bold">
@@ -81,21 +96,8 @@ export default function RootLayout({
                 <div className="absolute left-0 mt-1 w-64 bg-slate-900 border border-slate-800 rounded-xl shadow-2xl p-2 hidden group-hover:block z-50 space-y-1">
                   <Link href="/developer/api-keys" className="block px-3 py-2 rounded-lg hover:bg-slate-800 text-xs text-slate-300">Developer API Keys</Link>
                   <Link href="/developer/webhooks" className="block px-3 py-2 rounded-lg hover:bg-slate-800 text-xs text-slate-300">Webhook Subscriptions (HMAC)</Link>
-                  <Link href="/developer/api-center" className="block px-3 py-2 rounded-lg hover:bg-slate-800 text-xs text-slate-300">API Documentation Console</Link>
                 </div>
               </div>
-
-              {/* Module 18 Statutory Vault Link */}
-              <Link href="/settings/statutory-vault" className="px-3 py-2 rounded-lg hover:bg-slate-800/60 hover:text-white transition-colors flex items-center gap-1.5 font-bold">
-                <ShieldCheck className="w-3.5 h-3.5 text-indigo-400" />
-                Statutory Vault
-              </Link>
-
-              {/* Module 17 Country KB Link */}
-              <Link href="/kb/country-intelligence" className="px-3 py-2 rounded-lg hover:bg-slate-800/60 hover:text-white transition-colors flex items-center gap-1.5 font-bold">
-                <Globe className="w-3.5 h-3.5 text-indigo-400" />
-                Country KB
-              </Link>
 
               {/* Module 16 10-Dashboard Suite Link */}
               <Link href="/analytics/suite" className="px-3 py-2 rounded-lg bg-indigo-950/60 border border-indigo-800/40 hover:bg-indigo-900/60 text-indigo-300 transition-colors flex items-center gap-1.5 font-bold">
@@ -124,7 +126,7 @@ export default function RootLayout({
           <div className="flex items-center gap-4 text-slate-400 font-mono text-[11px]">
             <span>100% Platform Realized (30 Modules Complete)</span>
             <span>•</span>
-            <span>Developer API & Webhooks Active</span>
+            <span>Multi-Currency Finance & Forex Active</span>
           </div>
         </footer>
       </body>
