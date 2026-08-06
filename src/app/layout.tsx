@@ -39,7 +39,7 @@ import {
 
 export const metadata = {
   title: 'EXIM.IM — Enterprise Exim Trade SaaS Platform',
-  description: 'Complete 30-Module Exim Platform with Vendor Procurement Engine, Goods Receipt Notes, Manufacturing Batch Execution, and Global Trade Infrastructure.',
+  description: 'Complete 30-Module Exim Platform with UN CISG 1980 International Sales Contracts, AI Contract Legal Auditor, Export Quotations, and Global Trade Infrastructure.',
 };
 
 export default function RootLayout({
@@ -136,18 +136,17 @@ export default function RootLayout({
                 </div>
               </div>
 
-              {/* Module 8 Procurement & Commercial Links */}
+              {/* Module 10 Contracts & Sales Links */}
               <div className="relative group">
                 <span className="px-3 py-2 rounded-lg hover:bg-slate-800/60 hover:text-white cursor-pointer transition-colors flex items-center gap-1.5">
                   <Scale className="w-3.5 h-3.5 text-indigo-400" />
-                  Module 8: Procurement & POs
+                  Module 10: Contracts & AI
                 </span>
                 <div className="absolute left-0 mt-1 w-64 bg-slate-900 border border-slate-800 rounded-xl shadow-2xl p-2 hidden group-hover:block z-50 space-y-1">
-                  <Link href="/procurement/purchase-orders" className="block px-3 py-2 rounded-lg hover:bg-slate-800 text-xs text-slate-300">Vendor Purchase Orders (PO)</Link>
-                  <Link href="/procurement/goods-receipt" className="block px-3 py-2 rounded-lg hover:bg-slate-800 text-xs text-slate-300">Goods Receipt Notes (GRN)</Link>
-                  <Link href="/procurement/orders" className="block px-3 py-2 rounded-lg hover:bg-slate-800 text-xs text-slate-300">Vendor Procurement Orders</Link>
-                  <Link href="/sales/quotations" className="block px-3 py-2 rounded-lg hover:bg-slate-800 text-xs text-slate-300">Proforma Quotations</Link>
-                  <Link href="/sales/contracts" className="block px-3 py-2 rounded-lg hover:bg-slate-800 text-xs text-slate-300">CISG Sales Contracts & AI</Link>
+                  <Link href="/sales/contracts-v2" className="block px-3 py-2 rounded-lg hover:bg-slate-800 text-xs text-slate-300">UN CISG 1980 Sales Contracts</Link>
+                  <Link href="/sales/contract-audit" className="block px-3 py-2 rounded-lg hover:bg-slate-800 text-xs text-slate-300">AI Contract Legal Auditor</Link>
+                  <Link href="/sales/export-quotations" className="block px-3 py-2 rounded-lg hover:bg-slate-800 text-xs text-slate-300">Export Sales Quotations</Link>
+                  <Link href="/sales/margin-analysis" className="block px-3 py-2 rounded-lg hover:bg-slate-800 text-xs text-slate-300">Profit Margin Analysis</Link>
                 </div>
               </div>
             </nav>
@@ -172,7 +171,7 @@ export default function RootLayout({
           <div className="flex items-center gap-4 text-slate-400 font-mono text-[11px]">
             <span>100% Platform Realized (30 Modules Complete)</span>
             <span>•</span>
-            <span>Module 8 Procurement Engine Active</span>
+            <span>Module 10 AI Legal Auditor Active</span>
           </div>
         </footer>
       </body>
