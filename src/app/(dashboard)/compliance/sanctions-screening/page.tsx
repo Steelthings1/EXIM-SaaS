@@ -129,7 +129,7 @@ export default function SanctionsScreeningPage() {
                 <div>
                   <h4 className="font-bold text-white text-base">Sanctions Screening Passed (CLEAR)</h4>
                   <p className="text-xs text-emerald-300/90 mt-0.5">
-                    No denied party matches found for "{result.queryEntityName}" across OFAC SDN, UN, EU, or UK HMT registries at {(result.thresholdScore * 100).toFixed(0)}% similarity threshold.
+                    No denied party matches found for &quot;{result.queryEntityName}&quot; across OFAC SDN, UN, EU, or UK HMT registries at {(result.thresholdScore * 100).toFixed(0)}% similarity threshold.
                   </p>
                 </div>
               </div>
