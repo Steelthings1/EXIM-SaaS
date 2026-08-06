@@ -39,7 +39,7 @@ import {
 
 export const metadata = {
   title: 'EXIM.IM — Enterprise Exim Trade SaaS Platform',
-  description: 'Complete 30-Module Exim Platform with UN CISG 1980 International Sales Contracts, AI Contract Legal Auditor, Export Quotations, and Global Trade Infrastructure.',
+  description: 'Complete 30-Module Exim Platform with Multi-Carrier Freight Aggregator, Shipping Instructions Dispatch, UN CISG 1980 Sales Contracts, and Global Trade Infrastructure.',
 };
 
 export default function RootLayout({
@@ -122,14 +122,16 @@ export default function RootLayout({
                 </div>
               </div>
 
-              {/* Bundle D Logistics & Insurance Links */}
+              {/* Module 11 Logistics & Shipping Instructions Links */}
               <div className="relative group">
                 <span className="px-3 py-2 rounded-lg hover:bg-slate-800/60 hover:text-white cursor-pointer transition-colors flex items-center gap-1.5">
                   <Ship className="w-3.5 h-3.5 text-indigo-400" />
-                  Bundle D: Logistics & Insurance
+                  Module 11: Freight & SI
                 </span>
                 <div className="absolute left-0 mt-1 w-64 bg-slate-900 border border-slate-800 rounded-xl shadow-2xl p-2 hidden group-hover:block z-50 space-y-1">
-                  <Link href="/logistics/freight-rates" className="block px-3 py-2 rounded-lg hover:bg-slate-800 text-xs text-slate-300">Freight Rate Aggregator</Link>
+                  <Link href="/logistics/freight-aggregator" className="block px-3 py-2 rounded-lg hover:bg-slate-800 text-xs text-slate-300">Multi-Carrier Freight Aggregator</Link>
+                  <Link href="/logistics/shipping-instructions" className="block px-3 py-2 rounded-lg hover:bg-slate-800 text-xs text-slate-300">Shipping Instructions (SI)</Link>
+                  <Link href="/logistics/freight-rates" className="block px-3 py-2 rounded-lg hover:bg-slate-800 text-xs text-slate-300">Freight Rates Directory</Link>
                   <Link href="/logistics/bookings" className="block px-3 py-2 rounded-lg hover:bg-slate-800 text-xs text-slate-300">Carrier Bookings Registry</Link>
                   <Link href="/logistics/ais-tracking" className="block px-3 py-2 rounded-lg hover:bg-slate-800 text-xs text-slate-300">Satellite AIS Vessel Tracker</Link>
                   <Link href="/insurance/marine-policies" className="block px-3 py-2 rounded-lg hover:bg-slate-800 text-xs text-slate-300">Marine Cargo Insurance Vault</Link>
@@ -171,7 +173,7 @@ export default function RootLayout({
           <div className="flex items-center gap-4 text-slate-400 font-mono text-[11px]">
             <span>100% Platform Realized (30 Modules Complete)</span>
             <span>•</span>
-            <span>Module 10 AI Legal Auditor Active</span>
+            <span>Module 11 Freight Aggregator Active</span>
           </div>
         </footer>
       </body>
