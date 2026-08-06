@@ -19,12 +19,15 @@ import {
   Box,
   Factory,
   FlaskConical,
-  Award
+  Award,
+  Ship,
+  Anchor,
+  Satellite
 } from 'lucide-react';
 
 export const metadata = {
   title: 'EXIM.IM — Enterprise Exim Trade SaaS Platform',
-  description: 'Multi-tenant Exim platform with 3D Container Loading, QC Inspections, Statutory Certificates Vault, 26-Step Pipeline, and Single-Entry Engine.',
+  description: 'Multi-tenant Exim platform with Freight Rate Aggregator, AIS Satellite Tracking, Marine Insurance, 3D Container Loading, and 26-Step Pipeline.',
 };
 
 export default function RootLayout({
@@ -66,6 +69,20 @@ export default function RootLayout({
                 <Layers className="w-3.5 h-3.5 text-emerald-400" />
                 26-Step Pipeline
               </Link>
+
+              {/* Bundle D Logistics & Insurance Links */}
+              <div className="relative group">
+                <span className="px-3 py-2 rounded-lg hover:bg-slate-800/60 hover:text-white cursor-pointer transition-colors flex items-center gap-1.5">
+                  <Ship className="w-3.5 h-3.5 text-indigo-400" />
+                  Bundle D: Logistics & Insurance
+                </span>
+                <div className="absolute left-0 mt-1 w-64 bg-slate-900 border border-slate-800 rounded-xl shadow-2xl p-2 hidden group-hover:block z-50 space-y-1">
+                  <Link href="/logistics/freight-rates" className="block px-3 py-2 rounded-lg hover:bg-slate-800 text-xs text-slate-300">Freight Rate Aggregator</Link>
+                  <Link href="/logistics/bookings" className="block px-3 py-2 rounded-lg hover:bg-slate-800 text-xs text-slate-300">Carrier Bookings Registry</Link>
+                  <Link href="/logistics/ais-tracking" className="block px-3 py-2 rounded-lg hover:bg-slate-800 text-xs text-slate-300">Satellite AIS Vessel Tracker</Link>
+                  <Link href="/insurance/marine-policies" className="block px-3 py-2 rounded-lg hover:bg-slate-800 text-xs text-slate-300">Marine Cargo Insurance Vault</Link>
+                </div>
+              </div>
 
               {/* Bundle C Manufacturing & QC Links */}
               <div className="relative group">
@@ -154,11 +171,11 @@ export default function RootLayout({
             &copy; 2026 EXIM.IM SaaS Platform. Enterprise Exim Multi-Tenant Infrastructure.
           </div>
           <div className="flex items-center gap-4 text-slate-400 font-mono text-[11px]">
-            <span>3D Container Loading Active</span>
+            <span>Satellite AIS Telemetry Active</span>
             <span>•</span>
-            <span>Statutory Cert Vault Active</span>
+            <span>Marine Insurance 110% CIF Active</span>
             <span>•</span>
-            <span>Modules 1 & 2 & Bundles A, B & C Active</span>
+            <span>Modules 1 & 2 & Bundles A, B, C & D Active</span>
           </div>
         </footer>
       </body>
