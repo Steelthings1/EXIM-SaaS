@@ -41,7 +41,7 @@ import {
 
 export const metadata = {
   title: 'EXIM.IM — Enterprise Exim Trade SaaS Platform',
-  description: 'Complete 30-Module Exim Platform with Multi-Currency Finance & Forex Treasury, Developer API Center, Statutory Vault, 10-Dashboard Intelligence Suite, and Global Trade Infrastructure.',
+  description: 'Complete 30-Module Exim Platform with LC UCP 600 Auditor V3, eBRC / EDPMS Reconciliation, Multi-Currency Finance & Forex Treasury, Developer API Center, Statutory Vault, and Global Trade Infrastructure.',
 };
 
 export default function RootLayout({
@@ -72,18 +72,17 @@ export default function RootLayout({
                 Dashboard
               </Link>
 
-              {/* Module 20 Banking, Finance & Forex Treasury Links */}
+              {/* Module 21 Banking, LC Auditor & EDPMS Links */}
               <div className="relative group">
                 <span className="px-3 py-2 rounded-lg bg-indigo-950/60 border border-indigo-800/40 hover:bg-indigo-900/60 text-indigo-300 cursor-pointer transition-colors flex items-center gap-1.5 font-bold">
                   <Landmark className="w-3.5 h-3.5 text-indigo-400" />
-                  Banking & Finance
+                  Banking & LC Auditor
                 </span>
                 <div className="absolute left-0 mt-1 w-64 bg-slate-900 border border-slate-800 rounded-xl shadow-2xl p-2 hidden group-hover:block z-50 space-y-1">
+                  <Link href="/banking/lc-auditor-v3" className="block px-3 py-2 rounded-lg hover:bg-slate-800 text-xs text-slate-300">Letter of Credit UCP 600 Auditor V3</Link>
+                  <Link href="/banking/edpms-closures-v3" className="block px-3 py-2 rounded-lg hover:bg-slate-800 text-xs text-slate-300">eBRC & EDPMS Closures V3</Link>
                   <Link href="/finance/multi-currency-invoices" className="block px-3 py-2 rounded-lg hover:bg-slate-800 text-xs text-slate-300">Multi-Currency Invoices (LUT)</Link>
                   <Link href="/finance/forex-treasury" className="block px-3 py-2 rounded-lg hover:bg-slate-800 text-xs text-slate-300">Forex Realized Gain/Loss</Link>
-                  <Link href="/banking/lc-auditor" className="block px-3 py-2 rounded-lg hover:bg-slate-800 text-xs text-slate-300">Letter of Credit UCP 600 Auditor</Link>
-                  <Link href="/banking/edpms-reconciliation" className="block px-3 py-2 rounded-lg hover:bg-slate-800 text-xs text-slate-300">eBRC & EDPMS Reconciliation</Link>
-                  <Link href="/incentives/export-ledger" className="block px-3 py-2 rounded-lg hover:bg-slate-800 text-xs text-slate-300">Export Incentives (RoDTEP)</Link>
                 </div>
               </div>
 
@@ -126,7 +125,7 @@ export default function RootLayout({
           <div className="flex items-center gap-4 text-slate-400 font-mono text-[11px]">
             <span>100% Platform Realized (30 Modules Complete)</span>
             <span>•</span>
-            <span>Multi-Currency Finance & Forex Active</span>
+            <span>Module 21 Banking Auditor Active</span>
           </div>
         </footer>
       </body>
