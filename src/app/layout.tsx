@@ -22,12 +22,14 @@ import {
   Award,
   Ship,
   Anchor,
-  Satellite
+  Satellite,
+  Landmark,
+  DollarSign
 } from 'lucide-react';
 
 export const metadata = {
   title: 'EXIM.IM — Enterprise Exim Trade SaaS Platform',
-  description: 'Multi-tenant Exim platform with Freight Rate Aggregator, AIS Satellite Tracking, Marine Insurance, 3D Container Loading, and 26-Step Pipeline.',
+  description: 'Multi-tenant Exim platform with LC UCP 600 Checker, eBRC Reconciliation, RoDTEP Incentives, AIS Tracking, and Single-Entry Engine.',
 };
 
 export default function RootLayout({
@@ -69,6 +71,20 @@ export default function RootLayout({
                 <Layers className="w-3.5 h-3.5 text-emerald-400" />
                 26-Step Pipeline
               </Link>
+
+              {/* Bundle E Banking, Trade Finance & Incentives */}
+              <div className="relative group">
+                <span className="px-3 py-2 rounded-lg hover:bg-slate-800/60 hover:text-white cursor-pointer transition-colors flex items-center gap-1.5">
+                  <Landmark className="w-3.5 h-3.5 text-emerald-400" />
+                  Bundle E: Finance & eBRC
+                </span>
+                <div className="absolute left-0 mt-1 w-64 bg-slate-900 border border-slate-800 rounded-xl shadow-2xl p-2 hidden group-hover:block z-50 space-y-1">
+                  <Link href="/banking/lc-checker" className="block px-3 py-2 rounded-lg hover:bg-slate-800 text-xs text-slate-300">LC UCP 600 Discrepancy Auditor</Link>
+                  <Link href="/banking/ebrc-reconciliation" className="block px-3 py-2 rounded-lg hover:bg-slate-800 text-xs text-slate-300">eBRC & EDPMS Reconciliation</Link>
+                  <Link href="/finance/multi-currency-invoices" className="block px-3 py-2 rounded-lg hover:bg-slate-800 text-xs text-slate-300">Multi-Currency Invoices & FX</Link>
+                  <Link href="/incentives/ledger" className="block px-3 py-2 rounded-lg hover:bg-slate-800 text-xs text-slate-300">Export Incentives (RoDTEP)</Link>
+                </div>
+              </div>
 
               {/* Bundle D Logistics & Insurance Links */}
               <div className="relative group">
@@ -171,11 +187,11 @@ export default function RootLayout({
             &copy; 2026 EXIM.IM SaaS Platform. Enterprise Exim Multi-Tenant Infrastructure.
           </div>
           <div className="flex items-center gap-4 text-slate-400 font-mono text-[11px]">
-            <span>Satellite AIS Telemetry Active</span>
+            <span>LC UCP 600 Auditor Active</span>
             <span>•</span>
-            <span>Marine Insurance 110% CIF Active</span>
+            <span>eBRC / EDPMS Active</span>
             <span>•</span>
-            <span>Modules 1 & 2 & Bundles A, B, C & D Active</span>
+            <span>Modules 1 & 2 & Bundles A, B, C, D & E Active</span>
           </div>
         </footer>
       </body>
