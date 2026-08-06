@@ -32,12 +32,14 @@ import {
   ArrowLeftRight,
   AlertCircle,
   Zap,
-  History
+  History,
+  ShoppingCart,
+  PackageCheck
 } from 'lucide-react';
 
 export const metadata = {
   title: 'EXIM.IM — Enterprise Exim Trade SaaS Platform',
-  description: 'Complete 30-Module Exim Platform with Manufacturing Batch Execution, Cascading Document Engine, Multi-Warehouse Stock Engine, and Global Trade Infrastructure.',
+  description: 'Complete 30-Module Exim Platform with Vendor Procurement Engine, Goods Receipt Notes, Manufacturing Batch Execution, and Global Trade Infrastructure.',
 };
 
 export default function RootLayout({
@@ -134,32 +136,18 @@ export default function RootLayout({
                 </div>
               </div>
 
-              {/* Module 7 & Bundle C Manufacturing & QC Links */}
-              <div className="relative group">
-                <span className="px-3 py-2 rounded-lg hover:bg-slate-800/60 hover:text-white cursor-pointer transition-colors flex items-center gap-1.5">
-                  <Box className="w-3.5 h-3.5 text-emerald-400" />
-                  Module 7: Mfg & QC Loading
-                </span>
-                <div className="absolute left-0 mt-1 w-64 bg-slate-900 border border-slate-800 rounded-xl shadow-2xl p-2 hidden group-hover:block z-50 space-y-1">
-                  <Link href="/production/manufacturing-orders" className="block px-3 py-2 rounded-lg hover:bg-slate-800 text-xs text-slate-300">Manufacturing Batch Orders</Link>
-                  <Link href="/production/line-performance" className="block px-3 py-2 rounded-lg hover:bg-slate-800 text-xs text-slate-300">Production Line Performance</Link>
-                  <Link href="/production/batches" className="block px-3 py-2 rounded-lg hover:bg-slate-800 text-xs text-slate-300">Batch Scheduling Registry</Link>
-                  <Link href="/qc/container-loading" className="block px-3 py-2 rounded-lg hover:bg-slate-800 text-xs text-slate-300">3D Container Loading Planner</Link>
-                  <Link href="/qc/inspections" className="block px-3 py-2 rounded-lg hover:bg-slate-800 text-xs text-slate-300">QC & NABL Lab Inspection</Link>
-                  <Link href="/certificates/vault" className="block px-3 py-2 rounded-lg hover:bg-slate-800 text-xs text-slate-300">Statutory Export Certificates Vault</Link>
-                </div>
-              </div>
-
-              {/* Bundle B Commercial Workflow Links */}
+              {/* Module 8 Procurement & Commercial Links */}
               <div className="relative group">
                 <span className="px-3 py-2 rounded-lg hover:bg-slate-800/60 hover:text-white cursor-pointer transition-colors flex items-center gap-1.5">
                   <Scale className="w-3.5 h-3.5 text-indigo-400" />
-                  Bundle B: Contracts & Sales
+                  Module 8: Procurement & POs
                 </span>
-                <div className="absolute left-0 mt-1 w-56 bg-slate-900 border border-slate-800 rounded-xl shadow-2xl p-2 hidden group-hover:block z-50 space-y-1">
+                <div className="absolute left-0 mt-1 w-64 bg-slate-900 border border-slate-800 rounded-xl shadow-2xl p-2 hidden group-hover:block z-50 space-y-1">
+                  <Link href="/procurement/purchase-orders" className="block px-3 py-2 rounded-lg hover:bg-slate-800 text-xs text-slate-300">Vendor Purchase Orders (PO)</Link>
+                  <Link href="/procurement/goods-receipt" className="block px-3 py-2 rounded-lg hover:bg-slate-800 text-xs text-slate-300">Goods Receipt Notes (GRN)</Link>
+                  <Link href="/procurement/orders" className="block px-3 py-2 rounded-lg hover:bg-slate-800 text-xs text-slate-300">Vendor Procurement Orders</Link>
                   <Link href="/sales/quotations" className="block px-3 py-2 rounded-lg hover:bg-slate-800 text-xs text-slate-300">Proforma Quotations</Link>
                   <Link href="/sales/contracts" className="block px-3 py-2 rounded-lg hover:bg-slate-800 text-xs text-slate-300">CISG Sales Contracts & AI</Link>
-                  <Link href="/procurement/orders" className="block px-3 py-2 rounded-lg hover:bg-slate-800 text-xs text-slate-300">Vendor PO Procurement</Link>
                 </div>
               </div>
             </nav>
@@ -184,7 +172,7 @@ export default function RootLayout({
           <div className="flex items-center gap-4 text-slate-400 font-mono text-[11px]">
             <span>100% Platform Realized (30 Modules Complete)</span>
             <span>•</span>
-            <span>Module 7 Production Batch Engine Active</span>
+            <span>Module 8 Procurement Engine Active</span>
           </div>
         </footer>
       </body>
