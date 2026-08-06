@@ -39,7 +39,7 @@ import {
 
 export const metadata = {
   title: 'EXIM.IM — Enterprise Exim Trade SaaS Platform',
-  description: 'Complete 30-Module Exim Platform with Real-Time Satellite AIS Tracking, Container Telemetry, Multi-Carrier Freight Aggregator, and Global Trade Infrastructure.',
+  description: 'Complete 30-Module Exim Platform with Marine Cargo Insurance Vault, Transit Claims Ledger, Satellite AIS Tracking, and Global Trade Infrastructure.',
 };
 
 export default function RootLayout({
@@ -122,19 +122,19 @@ export default function RootLayout({
                 </div>
               </div>
 
-              {/* Module 12 AIS & Container Telemetry Links */}
+              {/* Module 13 Marine Cargo Insurance & Logistics Links */}
               <div className="relative group">
                 <span className="px-3 py-2 rounded-lg hover:bg-slate-800/60 hover:text-white cursor-pointer transition-colors flex items-center gap-1.5">
-                  <Satellite className="w-3.5 h-3.5 text-indigo-400" />
-                  Module 12: AIS & Telemetry
+                  <ShieldCheck className="w-3.5 h-3.5 text-indigo-400" />
+                  Module 13: Insurance & Cargo
                 </span>
                 <div className="absolute left-0 mt-1 w-64 bg-slate-900 border border-slate-800 rounded-xl shadow-2xl p-2 hidden group-hover:block z-50 space-y-1">
+                  <Link href="/insurance/policies" className="block px-3 py-2 rounded-lg hover:bg-slate-800 text-xs text-slate-300">Marine Cargo Insurance Vault</Link>
+                  <Link href="/insurance/claims" className="block px-3 py-2 rounded-lg hover:bg-slate-800 text-xs text-slate-300">Transit Damage Claims Ledger</Link>
+                  <Link href="/insurance/marine-policies" className="block px-3 py-2 rounded-lg hover:bg-slate-800 text-xs text-slate-300">Marine Policies Registry</Link>
                   <Link href="/logistics/ais-telemetry" className="block px-3 py-2 rounded-lg hover:bg-slate-800 text-xs text-slate-300">Satellite AIS Live Telemetry</Link>
                   <Link href="/logistics/container-milestones" className="block px-3 py-2 rounded-lg hover:bg-slate-800 text-xs text-slate-300">Container Milestone Pipeline</Link>
                   <Link href="/logistics/freight-aggregator" className="block px-3 py-2 rounded-lg hover:bg-slate-800 text-xs text-slate-300">Multi-Carrier Freight Aggregator</Link>
-                  <Link href="/logistics/shipping-instructions" className="block px-3 py-2 rounded-lg hover:bg-slate-800 text-xs text-slate-300">Shipping Instructions (SI)</Link>
-                  <Link href="/logistics/ais-tracking" className="block px-3 py-2 rounded-lg hover:bg-slate-800 text-xs text-slate-300">Satellite AIS Vessel Tracker</Link>
-                  <Link href="/insurance/marine-policies" className="block px-3 py-2 rounded-lg hover:bg-slate-800 text-xs text-slate-300">Marine Cargo Insurance Vault</Link>
                 </div>
               </div>
 
@@ -173,7 +173,7 @@ export default function RootLayout({
           <div className="flex items-center gap-4 text-slate-400 font-mono text-[11px]">
             <span>100% Platform Realized (30 Modules Complete)</span>
             <span>•</span>
-            <span>Module 12 Satellite AIS Engine Active</span>
+            <span>Module 13 Marine Insurance Engine Active</span>
           </div>
         </footer>
       </body>
