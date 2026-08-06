@@ -40,7 +40,7 @@ import {
 
 export const metadata = {
   title: 'EXIM.IM — Enterprise Exim Trade SaaS Platform',
-  description: 'Complete 30-Module Exim Platform with Destination Country Knowledge Base, 10-Dashboard Intelligence Suite, Multi-Modal AI Copilot, LC UCP 600 Auditor, and Global Trade Infrastructure.',
+  description: 'Complete 30-Module Exim Platform with Statutory License Vault (IEC/RCMC/FSSAI), Destination Country Knowledge Base, 10-Dashboard Intelligence Suite, and Global Trade Infrastructure.',
 };
 
 export default function RootLayout({
@@ -71,8 +71,14 @@ export default function RootLayout({
                 Dashboard
               </Link>
 
+              {/* Module 18 Statutory Vault Link */}
+              <Link href="/settings/statutory-vault" className="px-3 py-2 rounded-lg hover:bg-slate-800/60 hover:text-white transition-colors flex items-center gap-1.5 font-bold text-indigo-300">
+                <ShieldCheck className="w-3.5 h-3.5 text-indigo-400" />
+                Module 18: Statutory Vault
+              </Link>
+
               {/* Module 17 Country KB Link */}
-              <Link href="/kb/country-intelligence" className="px-3 py-2 rounded-lg hover:bg-slate-800/60 hover:text-white transition-colors flex items-center gap-1.5 font-bold text-indigo-300">
+              <Link href="/kb/country-intelligence" className="px-3 py-2 rounded-lg hover:bg-slate-800/60 hover:text-white transition-colors flex items-center gap-1.5 font-bold">
                 <Globe className="w-3.5 h-3.5 text-indigo-400" />
                 Module 17: Country KB
               </Link>
@@ -92,19 +98,6 @@ export default function RootLayout({
                 <div className="absolute left-0 mt-1 w-64 bg-slate-900 border border-slate-800 rounded-xl shadow-2xl p-2 hidden group-hover:block z-50 space-y-1">
                   <Link href="/ai/copilot-workspace" className="block px-3 py-2 rounded-lg hover:bg-slate-800 text-xs text-slate-300">Multi-Modal AI Copilot</Link>
                   <Link href="/ai/label-vision-scanner" className="block px-3 py-2 rounded-lg hover:bg-slate-800 text-xs text-slate-300">Packaging Label Vision Scanner</Link>
-                </div>
-              </div>
-
-              {/* Module 6 Single Entry & Cascading Workbench Links */}
-              <div className="relative group">
-                <span className="px-3 py-2 rounded-lg bg-indigo-950/60 border border-indigo-800/40 hover:bg-indigo-900/60 text-indigo-300 cursor-pointer transition-colors flex items-center gap-1.5 font-bold">
-                  <FileText className="w-3.5 h-3.5 text-indigo-400" />
-                  Module 6: Single-Entry
-                </span>
-                <div className="absolute left-0 mt-1 w-64 bg-slate-900 border border-slate-800 rounded-xl shadow-2xl p-2 hidden group-hover:block z-50 space-y-1">
-                  <Link href="/documents/single-entry-workbench" className="block px-3 py-2 rounded-lg hover:bg-slate-800 text-xs text-slate-300">Single-Entry Workbench</Link>
-                  <Link href="/documents/cascading-editor" className="block px-3 py-2 rounded-lg hover:bg-slate-800 text-xs text-slate-300">Cascading Field Editor</Link>
-                  <Link href="/documents/version-history" className="block px-3 py-2 rounded-lg hover:bg-slate-800 text-xs text-slate-300">Version History (SHA-256)</Link>
                 </div>
               </div>
             </nav>
@@ -129,7 +122,7 @@ export default function RootLayout({
           <div className="flex items-center gap-4 text-slate-400 font-mono text-[11px]">
             <span>100% Platform Realized (30 Modules Complete)</span>
             <span>•</span>
-            <span>Module 17 Country KB Active</span>
+            <span>Module 18 Statutory Vault Active</span>
           </div>
         </footer>
       </body>

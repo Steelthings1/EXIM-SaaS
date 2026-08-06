@@ -1,147 +1,165 @@
 "use client";
 
 import React, { useState } from 'react';
-import { StatutoryVaultCard, StatutoryLicenseProps } from '@/components/statutory-vault-card';
-import { ShieldCheck, Upload, Sparkles, Plus, AlertCircle, FileCheck, CheckCircle2 } from 'lucide-react';
-
-const INITIAL_LICENSES: StatutoryLicenseProps[] = [
-  {
-    licenseId: '11111111-2222-3333-4444-555555555555',
-    licenseType: 'GSTIN',
-    licenseNumber: '27AAACA1234A1Z5',
-    issuingAuthority: 'Goods and Services Tax Network (GSTN India)',
-    issueDate: '2020-04-01',
-    expiryDate: '2030-03-31',
-    status: 'VERIFIED',
-    documentUrl: 'https://vault.exim.im/docs/gstin_27AAACA1234A1Z5.pdf',
-    verifiedAt: '2025-01-15T09:00:00Z',
-  },
-  {
-    licenseId: '22222222-3333-4444-5555-666666666666',
-    licenseType: 'IEC',
-    licenseNumber: '0304005001',
-    issuingAuthority: 'Directorate General of Foreign Trade (DGFT)',
-    issueDate: '2015-08-15',
-    expiryDate: '2035-12-31',
-    status: 'VERIFIED',
-    documentUrl: 'https://vault.exim.im/docs/iec_0304005001.pdf',
-    verifiedAt: '2025-01-15T09:05:00Z',
-  },
-  {
-    licenseId: '33333333-4444-5555-6666-777777777777',
-    licenseType: 'EORI',
-    licenseNumber: 'GB123456789000',
-    issuingAuthority: 'HM Revenue & Customs (HMRC UK)',
-    issueDate: '2021-01-01',
-    expiryDate: '2028-12-31',
-    status: 'VERIFIED',
-    documentUrl: 'https://vault.exim.im/docs/eori_GB123456789000.pdf',
-    verifiedAt: '2025-01-20T11:30:00Z',
-  },
-  {
-    licenseId: '44444444-5555-6666-7777-888888888888',
-    licenseType: 'PAN',
-    licenseNumber: 'AAACA1234A',
-    issuingAuthority: 'Income Tax Department of India',
-    issueDate: '2010-05-12',
-    expiryDate: undefined,
-    status: 'VERIFIED',
-    documentUrl: 'https://vault.exim.im/docs/pan_AAACA1234A.pdf',
-    verifiedAt: '2025-01-15T09:10:00Z',
-  }
-];
+import { ShieldCheck, FileCheck, AlertTriangle, Clock, Plus, CheckCircle2, RefreshCw } from 'lucide-react';
+import { validateStatutoryLicense, evaluateLicenseExpiry, StatutoryLicense } from '@/lib/statutory-license-engine';
 
 export default function StatutoryVaultPage() {
-  const [licenses, setLicenses] = useState<StatutoryLicenseProps[]>(INITIAL_LICENSES);
-  const [isUploading, setIsUploading] = useState(false);
-  const [parseSuccessMessage, setParseSuccessMessage] = useState<string | null>(null);
+  const [licenses, setLicenses] = useState<StatutoryLicense[]>([
+    {
+      licenseId: 'lic-101',
+      licenseType: 'IEC',
+      licenseNumber: '0321049281',
+      issuingAuthority: 'DGFT Ministry of Commerce',
+      issueDate: '2020-01-15',
+      expiryDate: '2030-12-31',
+      status: 'ACTIVE',
+      daysRemaining: 1790
+    },
+    {
+      licenseId: 'lic-102',
+      licenseType: 'RCMC',
+      licenseNumber: 'RCMC-FIEO-2024-9041',
+      issuingAuthority: 'FIEO (Federation of Indian Export Organisations)',
+      issueDate: '2024-03-01',
+      expiryDate: '2026-03-31',
+      status: 'ACTIVE',
+      daysRemaining: 56
+    },
+    {
+      licenseId: 'lic-103',
+      licenseType: 'FSSAI',
+      licenseNumber: '10021022000491',
+      issuingAuthority: 'FSSAI Export Division',
+      issueDate: '2025-02-15',
+      expiryDate: '2026-02-28',
+      status: 'EXPIRING_SOON',
+      daysRemaining: 22
+    }
+  ]);
 
-  const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (!file) return;
+  const [type, setType] = useState<'IEC' | 'RCMC' | 'AD_CODE' | 'APEDA' | 'FSSAI' | 'ICEGATE_PORT'>('APEDA');
+  const [licNum, setLicNum] = useState('APEDA-REG-2026-9041');
+  const [authority, setAuthority] = useState('APEDA Ministry of Commerce');
+  const [expiryDate, setExpiryDate] = useState('2026-02-20');
 
-    setIsUploading(true);
-    setParseSuccessMessage(null);
+  const handleAddLicense = () => {
+    const { daysRemaining, status } = evaluateLicenseExpiry(expiryDate);
 
-    // Simulate AI Vision OCR Document Parsing
-    setTimeout(() => {
-      setIsUploading(false);
-      const newParsedLicense: StatutoryLicenseProps = {
-        licenseId: `lic-${Date.now()}`,
-        licenseType: file.name.toLowerCase().includes('rex') ? 'REX_EU' : 'FSSAI',
-        licenseNumber: 'IN-FSSAI-2024-998124',
-        issuingAuthority: 'Food Safety and Standards Authority of India (FSSAI)',
-        issueDate: '2024-01-10',
-        expiryDate: '2029-01-09',
-        status: 'VERIFIED',
-        documentUrl: 'https://vault.exim.im/docs/fssai_sample.pdf',
-        verifiedAt: new Date().toISOString(),
-      };
+    const newLic: StatutoryLicense = {
+      licenseId: `lic-${Date.now()}`,
+      licenseType: type,
+      licenseNumber: licNum,
+      issuingAuthority: authority,
+      issueDate: '2026-01-01',
+      expiryDate,
+      status,
+      daysRemaining
+    };
 
-      setLicenses([newParsedLicense, ...licenses]);
-      setParseSuccessMessage(`AI Vision successfully extracted and verified statutory certificate: ${newParsedLicense.licenseType} (${newParsedLicense.licenseNumber})`);
-    }, 1800);
+    setLicenses([newLic, ...licenses]);
   };
 
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100 p-8">
       <div className="max-w-6xl mx-auto space-y-8">
         {/* Header */}
-        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-800 pb-6">
-          <div>
-            <h1 className="text-2xl font-bold text-white flex items-center gap-3">
-              <ShieldCheck className="w-7 h-7 text-indigo-400" />
-              Statutory Identity Vault & AI License Vision Parser
-            </h1>
-            <p className="text-sm text-slate-400 mt-1">
-              Centralized repository for verified GSTIN, IEC, EORI, and trade certificates with automated OCR parsing.
-            </p>
-          </div>
-
-          <label className="flex items-center gap-2 px-5 py-3 bg-indigo-600 hover:bg-indigo-500 text-white font-semibold rounded-xl cursor-pointer transition-all duration-200 shadow-lg shadow-indigo-600/30">
-            <Upload className="w-4 h-4" />
-            <span>Upload Certificate PDF</span>
-            <input type="file" accept=".pdf,.png,.jpg,.jpeg" onChange={handleFileUpload} className="hidden" />
-          </label>
+        <div className="border-b border-slate-800 pb-6">
+          <h1 className="text-2xl font-bold text-white flex items-center gap-3">
+            <ShieldCheck className="w-7 h-7 text-indigo-400" />
+            Regulatory & Statutory License Vault
+          </h1>
+          <p className="text-sm text-slate-400 mt-1">
+            Store, track, and auto-renew statutory trade licenses (IEC, RCMC EPC Council, AD Code, APEDA, FSSAI, ICEGATE Port Registrations).
+          </p>
         </div>
 
-        {/* AI Parse Banner / Drag Drop Zone */}
-        <div className="border-2 border-dashed border-indigo-500/30 hover:border-indigo-500/60 rounded-2xl p-8 bg-slate-900/60 text-center relative overflow-hidden transition-all duration-200">
-          <div className="max-w-md mx-auto space-y-3">
-            <div className="w-14 h-14 rounded-2xl bg-indigo-500/10 border border-indigo-500/30 flex items-center justify-center text-indigo-400 mx-auto">
-              <Sparkles className="w-7 h-7 animate-pulse" />
-            </div>
+        {/* Add License Form */}
+        <div className="bg-slate-900/80 border border-slate-800 rounded-2xl p-6 shadow-xl space-y-4 font-mono text-xs">
+          <h2 className="text-sm font-bold text-white uppercase tracking-wider border-b border-slate-800 pb-3 flex items-center gap-2">
+            <Plus className="w-4 h-4 text-indigo-400" />
+            Register New Statutory License
+          </h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
             <div>
-              <h3 className="text-base font-bold text-white">AI License Vision Auto-Parsing Engine</h3>
-              <p className="text-xs text-slate-400 mt-1">
-                Drop your GST Registration, IEC Certificate, EORI PDF, or FSSAI License to automatically extract fields and validate statutory formats.
-              </p>
+              <label className="block text-slate-400 font-sans mb-1">License Category</label>
+              <select
+                value={type}
+                onChange={(e) => setType(e.target.value as any)}
+                className="w-full px-3 py-2 bg-slate-950 border border-slate-800 rounded-xl text-white font-mono"
+              >
+                <option value="IEC">IEC (Importer Exporter Code)</option>
+                <option value="RCMC">RCMC (EPC Export Council)</option>
+                <option value="AD_CODE">AD Code (Bank Port Reg)</option>
+                <option value="APEDA">APEDA Export License</option>
+                <option value="FSSAI">FSSAI Food Safety</option>
+                <option value="ICEGATE_PORT">ICEGATE Custom Port Reg</option>
+              </select>
             </div>
-            {isUploading ? (
-              <div className="flex items-center justify-center gap-2 text-indigo-400 font-semibold text-sm py-2">
-                <div className="w-4 h-4 border-2 border-indigo-400 border-t-transparent rounded-full animate-spin" />
-                <span>Running AI OCR Vision Extraction & RegEx Validation...</span>
-              </div>
-            ) : (
-              <span className="inline-block text-xs font-semibold text-indigo-400 bg-indigo-950/80 border border-indigo-800/60 px-3 py-1 rounded-full">
-                Supported Formats: PDF, PNG, JPG (GSTIN, IEC, EORI, PAN, REX)
-              </span>
-            )}
+
+            <div>
+              <label className="block text-slate-400 font-sans mb-1">License Number</label>
+              <input type="text" value={licNum} onChange={(e) => setLicNum(e.target.value)}
+                className="w-full px-3 py-2 bg-slate-950 border border-slate-800 rounded-xl text-white font-mono" />
+            </div>
+
+            <div>
+              <label className="block text-slate-400 font-sans mb-1">Issuing Authority</label>
+              <input type="text" value={authority} onChange={(e) => setAuthority(e.target.value)}
+                className="w-full px-3 py-2 bg-slate-950 border border-slate-800 rounded-xl text-white font-mono" />
+            </div>
+
+            <div>
+              <label className="block text-slate-400 font-sans mb-1">Expiry Date</label>
+              <input type="date" value={expiryDate} onChange={(e) => setExpiryDate(e.target.value)}
+                className="w-full px-3 py-2 bg-slate-950 border border-slate-800 rounded-xl text-white font-mono" />
+            </div>
           </div>
+
+          <button onClick={handleAddLicense}
+            className="w-full py-3 bg-indigo-600 hover:bg-indigo-500 text-white font-semibold rounded-xl text-xs flex items-center justify-center gap-2">
+            <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+            <span>Validate & Deposit License into Vault</span>
+          </button>
         </div>
 
-        {parseSuccessMessage && (
-          <div className="p-4 bg-emerald-950/80 border border-emerald-500/40 rounded-xl text-emerald-300 text-sm flex items-center gap-3 shadow-lg">
-            <CheckCircle2 className="w-5 h-5 text-emerald-400 shrink-0" />
-            <span>{parseSuccessMessage}</span>
-          </div>
-        )}
+        {/* Licenses Registry Table */}
+        <div className="bg-slate-900/80 border border-slate-800 rounded-2xl p-6 shadow-xl space-y-4 font-mono text-xs">
+          <h2 className="text-sm font-bold text-white uppercase tracking-wider border-b border-slate-800 pb-3">
+            Registered Statutory Licenses & Expiry Telemetry
+          </h2>
 
-        {/* Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {licenses.map((lic) => (
-            <StatutoryVaultCard key={lic.licenseId} {...lic} />
-          ))}
+          <div className="space-y-3">
+            {licenses.map((l) => (
+              <div key={l.licenseId} className="bg-slate-950 border border-slate-800 rounded-xl p-4 flex flex-col md:flex-row md:items-center justify-between gap-4">
+                <div>
+                  <div className="flex items-center gap-2">
+                    <span className="px-2 py-0.5 rounded bg-indigo-500/20 text-indigo-300 font-bold text-[10px] border border-indigo-500/30">
+                      {l.licenseType}
+                    </span>
+                    <h3 className="font-bold text-white font-mono">{l.licenseNumber}</h3>
+                  </div>
+                  <p className="text-slate-400 font-sans mt-1">Authority: {l.issuingAuthority} &bull; Valid until: {l.expiryDate}</p>
+                </div>
+
+                <div className="flex items-center gap-6">
+                  <div className="text-right">
+                    <span className="text-slate-500 block uppercase font-sans text-[10px]">Countdown</span>
+                    <span className="text-white font-bold">{l.daysRemaining} Days</span>
+                  </div>
+
+                  <span className={`px-2.5 py-0.5 rounded font-bold ${
+                    l.status === 'ACTIVE'
+                      ? 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/30'
+                      : 'bg-rose-500/20 text-rose-300 border border-rose-500/30 animate-pulse'
+                  }`}>
+                    {l.status}
+                  </span>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </div>
