@@ -27,12 +27,13 @@ import {
   DollarSign,
   Bot,
   Code2,
-  Store
+  Store,
+  MessageSquare
 } from 'lucide-react';
 
 export const metadata = {
   title: 'EXIM.IM — Enterprise Exim Trade SaaS Platform',
-  description: 'Complete 30-Module Exim Platform with Multi-Modal AI Copilot, 10-Dashboard Analytics, Developer API Portal, and Global Trade Infrastructure.',
+  description: 'Complete 30-Module Exim Platform with KYB Verification, Multi-Modal AI Copilot, 10-Dashboard Analytics, and Global Trade Infrastructure.',
 };
 
 export default function RootLayout({
@@ -149,16 +150,18 @@ export default function RootLayout({
                 </div>
               </div>
 
-              {/* Bundle A Products & CRM */}
+              {/* Module 4 CRM & KYB Links */}
               <div className="relative group">
                 <span className="px-3 py-2 rounded-lg hover:bg-slate-800/60 hover:text-white cursor-pointer transition-colors flex items-center gap-1.5">
-                  <Package className="w-3.5 h-3.5 text-amber-400" />
-                  Bundle A / Module 3: Products & BOM
+                  <Users className="w-3.5 h-3.5 text-amber-400" />
+                  Module 4: CRM & KYB
                 </span>
                 <div className="absolute left-0 mt-1 w-56 bg-slate-900 border border-slate-800 rounded-xl shadow-2xl p-2 hidden group-hover:block z-50 space-y-1">
+                  <Link href="/crm/contacts" className="block px-3 py-2 rounded-lg hover:bg-slate-800 text-xs text-slate-300">Customer & Supplier CRM</Link>
+                  <Link href="/crm/kyb-verifier" className="block px-3 py-2 rounded-lg hover:bg-slate-800 text-xs text-slate-300">KYB Statutory Identity Verifier</Link>
+                  <Link href="/crm/interactions" className="block px-3 py-2 rounded-lg hover:bg-slate-800 text-xs text-slate-300">Interaction Communication Logs</Link>
                   <Link href="/products/catalog" className="block px-3 py-2 rounded-lg hover:bg-slate-800 text-xs text-slate-300">Product Master Catalog</Link>
                   <Link href="/products/bom" className="block px-3 py-2 rounded-lg hover:bg-slate-800 text-xs text-slate-300">Bill of Materials (BOM)</Link>
-                  <Link href="/crm/contacts" className="block px-3 py-2 rounded-lg hover:bg-slate-800 text-xs text-slate-300">Customer & Supplier CRM</Link>
                   <Link href="/inventory/stock" className="block px-3 py-2 rounded-lg hover:bg-slate-800 text-xs text-slate-300">Multi-Warehouse Stock</Link>
                 </div>
               </div>
@@ -184,7 +187,7 @@ export default function RootLayout({
           <div className="flex items-center gap-4 text-slate-400 font-mono text-[11px]">
             <span>100% Platform Realized (30 Modules Complete)</span>
             <span>•</span>
-            <span>Step 1 Deployment & Module 3 BOM Active</span>
+            <span>Module 4 CRM & KYB Active</span>
           </div>
         </footer>
       </body>
