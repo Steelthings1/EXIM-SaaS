@@ -37,7 +37,7 @@ import {
 
 export const metadata = {
   title: 'EXIM.IM — Enterprise Exim Trade SaaS Platform',
-  description: 'Complete 30-Module Exim Platform with Cascading Document Engine, Multi-Warehouse Stock Engine, KYB Verification, and Global Trade Infrastructure.',
+  description: 'Complete 30-Module Exim Platform with Manufacturing Batch Execution, Cascading Document Engine, Multi-Warehouse Stock Engine, and Global Trade Infrastructure.',
 };
 
 export default function RootLayout({
@@ -134,16 +134,18 @@ export default function RootLayout({
                 </div>
               </div>
 
-              {/* Bundle C Manufacturing & QC Links */}
+              {/* Module 7 & Bundle C Manufacturing & QC Links */}
               <div className="relative group">
                 <span className="px-3 py-2 rounded-lg hover:bg-slate-800/60 hover:text-white cursor-pointer transition-colors flex items-center gap-1.5">
                   <Box className="w-3.5 h-3.5 text-emerald-400" />
-                  Bundle C: Mfg & QC Loading
+                  Module 7: Mfg & QC Loading
                 </span>
                 <div className="absolute left-0 mt-1 w-64 bg-slate-900 border border-slate-800 rounded-xl shadow-2xl p-2 hidden group-hover:block z-50 space-y-1">
+                  <Link href="/production/manufacturing-orders" className="block px-3 py-2 rounded-lg hover:bg-slate-800 text-xs text-slate-300">Manufacturing Batch Orders</Link>
+                  <Link href="/production/line-performance" className="block px-3 py-2 rounded-lg hover:bg-slate-800 text-xs text-slate-300">Production Line Performance</Link>
+                  <Link href="/production/batches" className="block px-3 py-2 rounded-lg hover:bg-slate-800 text-xs text-slate-300">Batch Scheduling Registry</Link>
                   <Link href="/qc/container-loading" className="block px-3 py-2 rounded-lg hover:bg-slate-800 text-xs text-slate-300">3D Container Loading Planner</Link>
                   <Link href="/qc/inspections" className="block px-3 py-2 rounded-lg hover:bg-slate-800 text-xs text-slate-300">QC & NABL Lab Inspection</Link>
-                  <Link href="/production/batches" className="block px-3 py-2 rounded-lg hover:bg-slate-800 text-xs text-slate-300">Manufacturing Production Batches</Link>
                   <Link href="/certificates/vault" className="block px-3 py-2 rounded-lg hover:bg-slate-800 text-xs text-slate-300">Statutory Export Certificates Vault</Link>
                 </div>
               </div>
@@ -182,7 +184,7 @@ export default function RootLayout({
           <div className="flex items-center gap-4 text-slate-400 font-mono text-[11px]">
             <span>100% Platform Realized (30 Modules Complete)</span>
             <span>•</span>
-            <span>Module 6 Cascading Engine Active</span>
+            <span>Module 7 Production Batch Engine Active</span>
           </div>
         </footer>
       </body>
