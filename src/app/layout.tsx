@@ -34,12 +34,13 @@ import {
   Zap,
   History,
   ShoppingCart,
-  PackageCheck
+  PackageCheck,
+  Camera
 } from 'lucide-react';
 
 export const metadata = {
   title: 'EXIM.IM — Enterprise Exim Trade SaaS Platform',
-  description: 'Complete 30-Module Exim Platform with LC UCP 600 Auditor, eBRC / EDPMS Reconciliation, Export Incentives, Marine Insurance Vault, and Global Trade Infrastructure.',
+  description: 'Complete 30-Module Exim Platform with Multi-Modal AI Copilot Workspace, Computer Vision Label Scanner, LC UCP 600 Auditor, and Global Trade Infrastructure.',
 };
 
 export default function RootLayout({
@@ -70,11 +71,18 @@ export default function RootLayout({
                 Dashboard
               </Link>
 
-              {/* Multi-Modal AI Copilot Link */}
-              <Link href="/ai/copilot" className="px-3 py-2 rounded-lg bg-indigo-950/60 border border-indigo-800/40 hover:bg-indigo-900/60 text-indigo-300 transition-colors flex items-center gap-1.5 font-bold">
-                <Bot className="w-3.5 h-3.5 text-indigo-400" />
-                AI Copilot
-              </Link>
+              {/* Module 15 Multi-Modal AI Copilot Links */}
+              <div className="relative group">
+                <span className="px-3 py-2 rounded-lg bg-indigo-950/60 border border-indigo-800/40 hover:bg-indigo-900/60 text-indigo-300 cursor-pointer transition-colors flex items-center gap-1.5 font-bold">
+                  <Bot className="w-3.5 h-3.5 text-indigo-400" />
+                  Module 15: AI Copilot
+                </span>
+                <div className="absolute left-0 mt-1 w-64 bg-slate-900 border border-slate-800 rounded-xl shadow-2xl p-2 hidden group-hover:block z-50 space-y-1">
+                  <Link href="/ai/copilot-workspace" className="block px-3 py-2 rounded-lg hover:bg-slate-800 text-xs text-slate-300">Multi-Modal AI Copilot</Link>
+                  <Link href="/ai/label-vision-scanner" className="block px-3 py-2 rounded-lg hover:bg-slate-800 text-xs text-slate-300">Packaging Label Vision Scanner</Link>
+                  <Link href="/ai/copilot" className="block px-3 py-2 rounded-lg hover:bg-slate-800 text-xs text-slate-300">Exim Copilot Console</Link>
+                </div>
+              </div>
               
               {/* 10-Dashboard Suite Link */}
               <Link href="/analytics/multi-dashboards" className="px-3 py-2 rounded-lg bg-indigo-950/60 border border-indigo-800/40 hover:bg-indigo-900/60 text-indigo-300 transition-colors flex items-center gap-1.5 font-bold">
@@ -105,8 +113,6 @@ export default function RootLayout({
                   <Link href="/banking/lc-auditor" className="block px-3 py-2 rounded-lg hover:bg-slate-800 text-xs text-slate-300">Letter of Credit UCP 600 Auditor</Link>
                   <Link href="/banking/edpms-reconciliation" className="block px-3 py-2 rounded-lg hover:bg-slate-800 text-xs text-slate-300">eBRC & EDPMS Reconciliation</Link>
                   <Link href="/incentives/export-ledger" className="block px-3 py-2 rounded-lg hover:bg-slate-800 text-xs text-slate-300">Export Incentives (RoDTEP)</Link>
-                  <Link href="/banking/lc-checker" className="block px-3 py-2 rounded-lg hover:bg-slate-800 text-xs text-slate-300">LC UCP 600 Discrepancy Auditor</Link>
-                  <Link href="/finance/multi-currency-invoices" className="block px-3 py-2 rounded-lg hover:bg-slate-800 text-xs text-slate-300">Multi-Currency Invoices & FX</Link>
                 </div>
               </div>
 
@@ -119,9 +125,6 @@ export default function RootLayout({
                 <div className="absolute left-0 mt-1 w-64 bg-slate-900 border border-slate-800 rounded-xl shadow-2xl p-2 hidden group-hover:block z-50 space-y-1">
                   <Link href="/insurance/policies" className="block px-3 py-2 rounded-lg hover:bg-slate-800 text-xs text-slate-300">Marine Cargo Insurance Vault</Link>
                   <Link href="/insurance/claims" className="block px-3 py-2 rounded-lg hover:bg-slate-800 text-xs text-slate-300">Transit Damage Claims Ledger</Link>
-                  <Link href="/insurance/marine-policies" className="block px-3 py-2 rounded-lg hover:bg-slate-800 text-xs text-slate-300">Marine Policies Registry</Link>
-                  <Link href="/logistics/ais-telemetry" className="block px-3 py-2 rounded-lg hover:bg-slate-800 text-xs text-slate-300">Satellite AIS Live Telemetry</Link>
-                  <Link href="/logistics/container-milestones" className="block px-3 py-2 rounded-lg hover:bg-slate-800 text-xs text-slate-300">Container Milestone Pipeline</Link>
                 </div>
               </div>
 
@@ -134,8 +137,6 @@ export default function RootLayout({
                 <div className="absolute left-0 mt-1 w-64 bg-slate-900 border border-slate-800 rounded-xl shadow-2xl p-2 hidden group-hover:block z-50 space-y-1">
                   <Link href="/sales/contracts-v2" className="block px-3 py-2 rounded-lg hover:bg-slate-800 text-xs text-slate-300">UN CISG 1980 Sales Contracts</Link>
                   <Link href="/sales/contract-audit" className="block px-3 py-2 rounded-lg hover:bg-slate-800 text-xs text-slate-300">AI Contract Legal Auditor</Link>
-                  <Link href="/sales/export-quotations" className="block px-3 py-2 rounded-lg hover:bg-slate-800 text-xs text-slate-300">Export Sales Quotations</Link>
-                  <Link href="/sales/margin-analysis" className="block px-3 py-2 rounded-lg hover:bg-slate-800 text-xs text-slate-300">Profit Margin Analysis</Link>
                 </div>
               </div>
             </nav>
@@ -160,7 +161,7 @@ export default function RootLayout({
           <div className="flex items-center gap-4 text-slate-400 font-mono text-[11px]">
             <span>100% Platform Realized (30 Modules Complete)</span>
             <span>•</span>
-            <span>Module 14 Trade Finance & LC Auditor Active</span>
+            <span>Module 15 Multi-Modal Copilot Active</span>
           </div>
         </footer>
       </body>
