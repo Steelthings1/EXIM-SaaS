@@ -28,12 +28,14 @@ import {
   Bot,
   Code2,
   Store,
-  MessageSquare
+  MessageSquare,
+  ArrowLeftRight,
+  AlertCircle
 } from 'lucide-react';
 
 export const metadata = {
   title: 'EXIM.IM — Enterprise Exim Trade SaaS Platform',
-  description: 'Complete 30-Module Exim Platform with KYB Verification, Multi-Modal AI Copilot, 10-Dashboard Analytics, and Global Trade Infrastructure.',
+  description: 'Complete 30-Module Exim Platform with Multi-Warehouse Stock Engine, KYB Verification, Multi-Modal AI Copilot, and Global Trade Infrastructure.',
 };
 
 export default function RootLayout({
@@ -150,19 +152,19 @@ export default function RootLayout({
                 </div>
               </div>
 
-              {/* Module 4 CRM & KYB Links */}
+              {/* Module 5 Inventory & Stock Links */}
               <div className="relative group">
                 <span className="px-3 py-2 rounded-lg hover:bg-slate-800/60 hover:text-white cursor-pointer transition-colors flex items-center gap-1.5">
-                  <Users className="w-3.5 h-3.5 text-amber-400" />
-                  Module 4: CRM & KYB
+                  <Warehouse className="w-3.5 h-3.5 text-amber-400" />
+                  Module 5: Multi-Warehouse
                 </span>
-                <div className="absolute left-0 mt-1 w-56 bg-slate-900 border border-slate-800 rounded-xl shadow-2xl p-2 hidden group-hover:block z-50 space-y-1">
+                <div className="absolute left-0 mt-1 w-60 bg-slate-900 border border-slate-800 rounded-xl shadow-2xl p-2 hidden group-hover:block z-50 space-y-1">
+                  <Link href="/inventory/stock" className="block px-3 py-2 rounded-lg hover:bg-slate-800 text-xs text-slate-300">Multi-Warehouse Stock Registry</Link>
+                  <Link href="/inventory/movements" className="block px-3 py-2 rounded-lg hover:bg-slate-800 text-xs text-slate-300">Stock Movements Ledger</Link>
+                  <Link href="/inventory/reorder-alerts" className="block px-3 py-2 rounded-lg hover:bg-slate-800 text-xs text-slate-300">Reorder Level & Expiry Alerts</Link>
                   <Link href="/crm/contacts" className="block px-3 py-2 rounded-lg hover:bg-slate-800 text-xs text-slate-300">Customer & Supplier CRM</Link>
-                  <Link href="/crm/kyb-verifier" className="block px-3 py-2 rounded-lg hover:bg-slate-800 text-xs text-slate-300">KYB Statutory Identity Verifier</Link>
-                  <Link href="/crm/interactions" className="block px-3 py-2 rounded-lg hover:bg-slate-800 text-xs text-slate-300">Interaction Communication Logs</Link>
                   <Link href="/products/catalog" className="block px-3 py-2 rounded-lg hover:bg-slate-800 text-xs text-slate-300">Product Master Catalog</Link>
                   <Link href="/products/bom" className="block px-3 py-2 rounded-lg hover:bg-slate-800 text-xs text-slate-300">Bill of Materials (BOM)</Link>
-                  <Link href="/inventory/stock" className="block px-3 py-2 rounded-lg hover:bg-slate-800 text-xs text-slate-300">Multi-Warehouse Stock</Link>
                 </div>
               </div>
             </nav>
@@ -187,7 +189,7 @@ export default function RootLayout({
           <div className="flex items-center gap-4 text-slate-400 font-mono text-[11px]">
             <span>100% Platform Realized (30 Modules Complete)</span>
             <span>•</span>
-            <span>Module 4 CRM & KYB Active</span>
+            <span>Module 5 Inventory Engine Active</span>
           </div>
         </footer>
       </body>
