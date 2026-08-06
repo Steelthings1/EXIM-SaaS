@@ -35,12 +35,13 @@ import {
   History,
   ShoppingCart,
   PackageCheck,
-  Camera
+  Camera,
+  Key
 } from 'lucide-react';
 
 export const metadata = {
   title: 'EXIM.IM — Enterprise Exim Trade SaaS Platform',
-  description: 'Complete 30-Module Exim Platform with Statutory License Vault (IEC/RCMC/FSSAI), Destination Country Knowledge Base, 10-Dashboard Intelligence Suite, and Global Trade Infrastructure.',
+  description: 'Complete 30-Module Exim Platform with Developer API Center, Webhook Subscriptions (HMAC SHA-256), Statutory Vault, 10-Dashboard Intelligence Suite, and Global Trade Infrastructure.',
 };
 
 export default function RootLayout({
@@ -71,16 +72,29 @@ export default function RootLayout({
                 Dashboard
               </Link>
 
+              {/* Developer API & Webhooks Links */}
+              <div className="relative group">
+                <span className="px-3 py-2 rounded-lg bg-indigo-950/60 border border-indigo-800/40 hover:bg-indigo-900/60 text-indigo-300 cursor-pointer transition-colors flex items-center gap-1.5 font-bold">
+                  <Code2 className="w-3.5 h-3.5 text-indigo-400" />
+                  Developer & Webhooks
+                </span>
+                <div className="absolute left-0 mt-1 w-64 bg-slate-900 border border-slate-800 rounded-xl shadow-2xl p-2 hidden group-hover:block z-50 space-y-1">
+                  <Link href="/developer/api-keys" className="block px-3 py-2 rounded-lg hover:bg-slate-800 text-xs text-slate-300">Developer API Keys</Link>
+                  <Link href="/developer/webhooks" className="block px-3 py-2 rounded-lg hover:bg-slate-800 text-xs text-slate-300">Webhook Subscriptions (HMAC)</Link>
+                  <Link href="/developer/api-center" className="block px-3 py-2 rounded-lg hover:bg-slate-800 text-xs text-slate-300">API Documentation Console</Link>
+                </div>
+              </div>
+
               {/* Module 18 Statutory Vault Link */}
-              <Link href="/settings/statutory-vault" className="px-3 py-2 rounded-lg hover:bg-slate-800/60 hover:text-white transition-colors flex items-center gap-1.5 font-bold text-indigo-300">
+              <Link href="/settings/statutory-vault" className="px-3 py-2 rounded-lg hover:bg-slate-800/60 hover:text-white transition-colors flex items-center gap-1.5 font-bold">
                 <ShieldCheck className="w-3.5 h-3.5 text-indigo-400" />
-                Module 18: Statutory Vault
+                Statutory Vault
               </Link>
 
               {/* Module 17 Country KB Link */}
               <Link href="/kb/country-intelligence" className="px-3 py-2 rounded-lg hover:bg-slate-800/60 hover:text-white transition-colors flex items-center gap-1.5 font-bold">
                 <Globe className="w-3.5 h-3.5 text-indigo-400" />
-                Module 17: Country KB
+                Country KB
               </Link>
 
               {/* Module 16 10-Dashboard Suite Link */}
@@ -88,18 +102,6 @@ export default function RootLayout({
                 <LayoutDashboard className="w-3.5 h-3.5 text-emerald-400" />
                 10-Dashboard Suite
               </Link>
-
-              {/* Module 15 Multi-Modal AI Copilot Links */}
-              <div className="relative group">
-                <span className="px-3 py-2 rounded-lg bg-indigo-950/60 border border-indigo-800/40 hover:bg-indigo-900/60 text-indigo-300 cursor-pointer transition-colors flex items-center gap-1.5 font-bold">
-                  <Bot className="w-3.5 h-3.5 text-indigo-400" />
-                  Module 15: AI Copilot
-                </span>
-                <div className="absolute left-0 mt-1 w-64 bg-slate-900 border border-slate-800 rounded-xl shadow-2xl p-2 hidden group-hover:block z-50 space-y-1">
-                  <Link href="/ai/copilot-workspace" className="block px-3 py-2 rounded-lg hover:bg-slate-800 text-xs text-slate-300">Multi-Modal AI Copilot</Link>
-                  <Link href="/ai/label-vision-scanner" className="block px-3 py-2 rounded-lg hover:bg-slate-800 text-xs text-slate-300">Packaging Label Vision Scanner</Link>
-                </div>
-              </div>
             </nav>
           </div>
 
@@ -122,7 +124,7 @@ export default function RootLayout({
           <div className="flex items-center gap-4 text-slate-400 font-mono text-[11px]">
             <span>100% Platform Realized (30 Modules Complete)</span>
             <span>•</span>
-            <span>Module 18 Statutory Vault Active</span>
+            <span>Developer API & Webhooks Active</span>
           </div>
         </footer>
       </body>
