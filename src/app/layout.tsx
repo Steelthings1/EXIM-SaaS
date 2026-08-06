@@ -24,12 +24,15 @@ import {
   Anchor,
   Satellite,
   Landmark,
-  DollarSign
+  DollarSign,
+  Bot,
+  Code2,
+  Store
 } from 'lucide-react';
 
 export const metadata = {
   title: 'EXIM.IM — Enterprise Exim Trade SaaS Platform',
-  description: 'Multi-tenant Exim platform with LC UCP 600 Checker, eBRC Reconciliation, RoDTEP Incentives, AIS Tracking, and Single-Entry Engine.',
+  description: 'Complete 30-Module Exim Platform with Multi-Modal AI Copilot, 10-Dashboard Analytics, Developer API Portal, and Global Trade Infrastructure.',
 };
 
 export default function RootLayout({
@@ -59,18 +62,37 @@ export default function RootLayout({
                 <LayoutDashboard className="w-3.5 h-3.5 text-indigo-400" />
                 Dashboard
               </Link>
+
+              {/* Multi-Modal AI Copilot Link */}
+              <Link href="/ai/copilot" className="px-3 py-2 rounded-lg bg-indigo-950/60 border border-indigo-800/40 hover:bg-indigo-900/60 text-indigo-300 transition-colors flex items-center gap-1.5 font-bold">
+                <Bot className="w-3.5 h-3.5 text-indigo-400" />
+                AI Copilot
+              </Link>
               
+              {/* 10-Dashboard Suite Link */}
+              <Link href="/analytics/multi-dashboards" className="px-3 py-2 rounded-lg bg-indigo-950/60 border border-indigo-800/40 hover:bg-indigo-900/60 text-indigo-300 transition-colors flex items-center gap-1.5 font-bold">
+                <LayoutDashboard className="w-3.5 h-3.5 text-emerald-400" />
+                10-Dashboard Suite
+              </Link>
+
               {/* Single Entry Workbench Link */}
               <Link href="/documents/single-entry-workbench" className="px-3 py-2 rounded-lg bg-indigo-950/60 border border-indigo-800/40 hover:bg-indigo-900/60 text-indigo-300 transition-colors flex items-center gap-1.5 font-bold">
                 <FileText className="w-3.5 h-3.5 text-indigo-400" />
-                Single-Entry Workbench
+                Single-Entry
               </Link>
 
-              {/* 26-Step Pipeline Tracker Link */}
-              <Link href="/workflow/pipeline-tracker" className="px-3 py-2 rounded-lg bg-indigo-950/60 border border-indigo-800/40 hover:bg-indigo-900/60 text-indigo-300 transition-colors flex items-center gap-1.5 font-bold">
-                <Layers className="w-3.5 h-3.5 text-emerald-400" />
-                26-Step Pipeline
-              </Link>
+              {/* Bundle F Portal & Marketplace Links */}
+              <div className="relative group">
+                <span className="px-3 py-2 rounded-lg hover:bg-slate-800/60 hover:text-white cursor-pointer transition-colors flex items-center gap-1.5">
+                  <Globe className="w-3.5 h-3.5 text-emerald-400" />
+                  Bundle F: AI & Platform
+                </span>
+                <div className="absolute left-0 mt-1 w-64 bg-slate-900 border border-slate-800 rounded-xl shadow-2xl p-2 hidden group-hover:block z-50 space-y-1">
+                  <Link href="/kb/country-intelligence" className="block px-3 py-2 rounded-lg hover:bg-slate-800 text-xs text-slate-300">Country Knowledge Base</Link>
+                  <Link href="/developer/api-center" className="block px-3 py-2 rounded-lg hover:bg-slate-800 text-xs text-slate-300">Developer API & Webhooks</Link>
+                  <Link href="/marketplace/directory" className="block px-3 py-2 rounded-lg hover:bg-slate-800 text-xs text-slate-300">Ecosystem Marketplace</Link>
+                </div>
+              </div>
 
               {/* Bundle E Banking, Trade Finance & Incentives */}
               <div className="relative group">
@@ -139,34 +161,6 @@ export default function RootLayout({
                   <Link href="/inventory/stock" className="block px-3 py-2 rounded-lg hover:bg-slate-800 text-xs text-slate-300">Multi-Warehouse Stock</Link>
                 </div>
               </div>
-
-              {/* Module 1 Settings */}
-              <div className="relative group">
-                <span className="px-3 py-2 rounded-lg hover:bg-slate-800/60 hover:text-white cursor-pointer transition-colors flex items-center gap-1.5">
-                  <Building2 className="w-3.5 h-3.5 text-indigo-400" />
-                  Module 1: Profile & Vault
-                </span>
-                <div className="absolute left-0 mt-1 w-56 bg-slate-900 border border-slate-800 rounded-xl shadow-2xl p-2 hidden group-hover:block z-50 space-y-1">
-                  <Link href="/settings/organization" className="block px-3 py-2 rounded-lg hover:bg-slate-800 text-xs text-slate-300">Organization Settings</Link>
-                  <Link href="/settings/statutory-vault" className="block px-3 py-2 rounded-lg hover:bg-slate-800 text-xs text-slate-300">Statutory Identity Vault</Link>
-                  <Link href="/settings/branches-warehouses" className="block px-3 py-2 rounded-lg hover:bg-slate-800 text-xs text-slate-300">Branch & Warehouse Registry</Link>
-                  <Link href="/settings/members-roles" className="block px-3 py-2 rounded-lg hover:bg-slate-800 text-xs text-slate-300">Members & 19 RBAC Roles</Link>
-                </div>
-              </div>
-
-              {/* Module 2 Compliance */}
-              <div className="relative group">
-                <span className="px-3 py-2 rounded-lg hover:bg-slate-800/60 hover:text-white cursor-pointer transition-colors flex items-center gap-1.5">
-                  <Network className="w-3.5 h-3.5 text-emerald-400" />
-                  Module 2: Compliance
-                </span>
-                <div className="absolute left-0 mt-1 w-56 bg-slate-900 border border-slate-800 rounded-xl shadow-2xl p-2 hidden group-hover:block z-50 space-y-1">
-                  <Link href="/compliance/hs-classifier" className="block px-3 py-2 rounded-lg hover:bg-slate-800 text-xs text-slate-300">AI HS Code Classifier</Link>
-                  <Link href="/compliance/country-rules" className="block px-3 py-2 rounded-lg hover:bg-slate-800 text-xs text-slate-300">Country Regulatory Rules</Link>
-                  <Link href="/compliance/tariff-calculator" className="block px-3 py-2 rounded-lg hover:bg-slate-800 text-xs text-slate-300">Landed Cost & Duty Calculator</Link>
-                  <Link href="/compliance/sanctions-screening" className="block px-3 py-2 rounded-lg hover:bg-slate-800 text-xs text-slate-300">Fuzzy Sanctions Screener</Link>
-                </div>
-              </div>
             </nav>
           </div>
 
@@ -187,11 +181,9 @@ export default function RootLayout({
             &copy; 2026 EXIM.IM SaaS Platform. Enterprise Exim Multi-Tenant Infrastructure.
           </div>
           <div className="flex items-center gap-4 text-slate-400 font-mono text-[11px]">
-            <span>LC UCP 600 Auditor Active</span>
+            <span>100% Platform Realized (30 Modules Complete)</span>
             <span>•</span>
-            <span>eBRC / EDPMS Active</span>
-            <span>•</span>
-            <span>Modules 1 & 2 & Bundles A, B, C, D & E Active</span>
+            <span>All Bundles A, B, C, D, E & F Active</span>
           </div>
         </footer>
       </body>
