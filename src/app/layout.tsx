@@ -14,12 +14,14 @@ import {
   LayoutDashboard,
   FileText,
   Package,
-  Boxes
+  Layers,
+  Scale,
+  ShoppingBag
 } from 'lucide-react';
 
 export const metadata = {
   title: 'EXIM.IM — Enterprise Exim Trade SaaS Platform',
-  description: 'Multi-tenant Exim platform with Single-Entry Engine, AI HS Classification, Statutory Vault, Landed Cost Calculator, CRM, and Sanctions Screening.',
+  description: 'Multi-tenant Exim platform with 26-Step Pipeline Tracker, CISG Sales Contracts, Single-Entry Engine, AI HS Classification, and Statutory Vault.',
 };
 
 export default function RootLayout({
@@ -56,7 +58,26 @@ export default function RootLayout({
                 Single-Entry Workbench
               </Link>
 
-              {/* CRM / Catalog / Inventory Links */}
+              {/* 26-Step Pipeline Tracker Link */}
+              <Link href="/workflow/pipeline-tracker" className="px-3 py-2 rounded-lg bg-indigo-950/60 border border-indigo-800/40 hover:bg-indigo-900/60 text-indigo-300 transition-colors flex items-center gap-1.5 font-bold">
+                <Layers className="w-3.5 h-3.5 text-emerald-400" />
+                26-Step Pipeline
+              </Link>
+
+              {/* Bundle B Commercial Workflow Links */}
+              <div className="relative group">
+                <span className="px-3 py-2 rounded-lg hover:bg-slate-800/60 hover:text-white cursor-pointer transition-colors flex items-center gap-1.5">
+                  <Scale className="w-3.5 h-3.5 text-indigo-400" />
+                  Bundle B: Contracts & Sales
+                </span>
+                <div className="absolute left-0 mt-1 w-56 bg-slate-900 border border-slate-800 rounded-xl shadow-2xl p-2 hidden group-hover:block z-50 space-y-1">
+                  <Link href="/sales/quotations" className="block px-3 py-2 rounded-lg hover:bg-slate-800 text-xs text-slate-300">Proforma Quotations</Link>
+                  <Link href="/sales/contracts" className="block px-3 py-2 rounded-lg hover:bg-slate-800 text-xs text-slate-300">CISG Sales Contracts & AI</Link>
+                  <Link href="/procurement/orders" className="block px-3 py-2 rounded-lg hover:bg-slate-800 text-xs text-slate-300">Vendor PO Procurement</Link>
+                </div>
+              </div>
+
+              {/* Bundle A Products & CRM */}
               <div className="relative group">
                 <span className="px-3 py-2 rounded-lg hover:bg-slate-800/60 hover:text-white cursor-pointer transition-colors flex items-center gap-1.5">
                   <Package className="w-3.5 h-3.5 text-amber-400" />
@@ -116,11 +137,11 @@ export default function RootLayout({
             &copy; 2026 EXIM.IM SaaS Platform. Enterprise Exim Multi-Tenant Infrastructure.
           </div>
           <div className="flex items-center gap-4 text-slate-400 font-mono text-[11px]">
-            <span>Single-Entry Hub Active</span>
+            <span>26-Step Pipeline Active</span>
             <span>•</span>
-            <span>Module 1 & 2 & Bundle A Active</span>
+            <span>UN CISG 1980 Auditor Active</span>
             <span>•</span>
-            <span>OFAC / UNSC Live</span>
+            <span>Modules 1 & 2 & Bundles A & B Active</span>
           </div>
         </footer>
       </body>
