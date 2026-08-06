@@ -40,7 +40,7 @@ import {
 
 export const metadata = {
   title: 'EXIM.IM — Enterprise Exim Trade SaaS Platform',
-  description: 'Complete 30-Module Exim Platform with 10-Dashboard Intelligence Suite, Multi-Modal AI Copilot, LC UCP 600 Auditor, and Global Trade Infrastructure.',
+  description: 'Complete 30-Module Exim Platform with Destination Country Knowledge Base, 10-Dashboard Intelligence Suite, Multi-Modal AI Copilot, LC UCP 600 Auditor, and Global Trade Infrastructure.',
 };
 
 export default function RootLayout({
@@ -69,6 +69,12 @@ export default function RootLayout({
               <Link href="/" className="px-3 py-2 rounded-lg hover:bg-slate-800/60 hover:text-white transition-colors flex items-center gap-1.5">
                 <LayoutDashboard className="w-3.5 h-3.5 text-indigo-400" />
                 Dashboard
+              </Link>
+
+              {/* Module 17 Country KB Link */}
+              <Link href="/kb/country-intelligence" className="px-3 py-2 rounded-lg hover:bg-slate-800/60 hover:text-white transition-colors flex items-center gap-1.5 font-bold text-indigo-300">
+                <Globe className="w-3.5 h-3.5 text-indigo-400" />
+                Module 17: Country KB
               </Link>
 
               {/* Module 16 10-Dashboard Suite Link */}
@@ -101,19 +107,6 @@ export default function RootLayout({
                   <Link href="/documents/version-history" className="block px-3 py-2 rounded-lg hover:bg-slate-800 text-xs text-slate-300">Version History (SHA-256)</Link>
                 </div>
               </div>
-
-              {/* Module 14 Banking, Trade Finance & Incentives Links */}
-              <div className="relative group">
-                <span className="px-3 py-2 rounded-lg hover:bg-slate-800/60 hover:text-white cursor-pointer transition-colors flex items-center gap-1.5 font-bold text-indigo-300">
-                  <Landmark className="w-3.5 h-3.5 text-indigo-400" />
-                  Module 14: Banking & LC
-                </span>
-                <div className="absolute left-0 mt-1 w-64 bg-slate-900 border border-slate-800 rounded-xl shadow-2xl p-2 hidden group-hover:block z-50 space-y-1">
-                  <Link href="/banking/lc-auditor" className="block px-3 py-2 rounded-lg hover:bg-slate-800 text-xs text-slate-300">Letter of Credit UCP 600 Auditor</Link>
-                  <Link href="/banking/edpms-reconciliation" className="block px-3 py-2 rounded-lg hover:bg-slate-800 text-xs text-slate-300">eBRC & EDPMS Reconciliation</Link>
-                  <Link href="/incentives/export-ledger" className="block px-3 py-2 rounded-lg hover:bg-slate-800 text-xs text-slate-300">Export Incentives (RoDTEP)</Link>
-                </div>
-              </div>
             </nav>
           </div>
 
@@ -136,7 +129,7 @@ export default function RootLayout({
           <div className="flex items-center gap-4 text-slate-400 font-mono text-[11px]">
             <span>100% Platform Realized (30 Modules Complete)</span>
             <span>•</span>
-            <span>Module 16 10-Dashboard Intelligence Active</span>
+            <span>Module 17 Country KB Active</span>
           </div>
         </footer>
       </body>
