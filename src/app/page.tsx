@@ -82,7 +82,7 @@ export default function HomePage() {
   ];
 
   return (
-    <div className="p-8 max-w-6xl mx-auto space-y-10">
+    <div className="p-8 max-w-5xl mx-auto space-y-10">
       {/* Hero Section */}
       <div className="bg-gradient-to-br from-indigo-950/90 via-slate-900 to-slate-950 border border-indigo-500/30 rounded-3xl p-8 shadow-2xl relative overflow-hidden">
         <div className="absolute -top-10 -right-10 w-64 h-64 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none" />
@@ -101,7 +101,7 @@ export default function HomePage() {
         </div>
       </div>
 
-      {/* Module Categories Grid */}
+      {/* Vertical Stacked Module Categories Stream */}
       {moduleCategories.map((category, idx) => (
         <div key={idx} className="space-y-4">
           <div className="flex items-center justify-between border-b border-slate-800 pb-3">
@@ -111,22 +111,23 @@ export default function HomePage() {
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {/* Vertical Stack Layout (grid-cols-1) */}
+          <div className="grid grid-cols-1 gap-4">
             {category.modules.map((mod, mIdx) => {
               const IconComp = mod.icon;
               return (
-                <Link key={mIdx} href={mod.href} className="bg-slate-900/80 hover:bg-slate-900 border border-slate-800 hover:border-indigo-500/50 rounded-2xl p-5 transition-all group">
+                <Link key={mIdx} href={mod.href} className="bg-slate-900/80 hover:bg-slate-900 border border-slate-800 hover:border-indigo-500/50 rounded-2xl p-5 transition-all group block">
                   <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-3">
-                      <div className="p-2.5 bg-indigo-500/10 border border-indigo-500/20 rounded-xl text-indigo-400">
-                        <IconComp className="w-5 h-5" />
+                    <div className="flex items-center gap-4">
+                      <div className="p-3 bg-indigo-500/10 border border-indigo-500/20 rounded-xl text-indigo-400 shrink-0">
+                        <IconComp className="w-6 h-6" />
                       </div>
                       <div>
                         <h3 className="font-bold text-slate-100 text-sm group-hover:text-indigo-300 transition-colors">{mod.title}</h3>
                         <p className="text-xs text-slate-400 mt-0.5">{mod.desc}</p>
                       </div>
                     </div>
-                    <ArrowRight className="w-4 h-4 text-slate-500 group-hover:text-indigo-400 group-hover:translate-x-1 transition-all" />
+                    <ArrowRight className="w-5 h-5 text-slate-500 group-hover:text-indigo-400 group-hover:translate-x-1 transition-all shrink-0" />
                   </div>
                 </Link>
               );

@@ -66,7 +66,7 @@ export default function SingleEntryWorkbenchPage() {
 
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100 p-8 space-y-8">
-      <div className="max-w-7xl mx-auto space-y-8">
+      <div className="max-w-5xl mx-auto space-y-8">
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-800 pb-6">
           <div>
@@ -105,154 +105,155 @@ export default function SingleEntryWorkbenchPage() {
           </div>
         </Card>
 
-        {/* Main Grid: Data Entry Form (Left) & Real-time Live Preview (Right) */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-          {/* Left Column: Master Data Entry Workbench */}
-          <div className="lg:col-span-6 space-y-6">
-            <Card>
-              <CardHeader>
-                <CardTitle>
-                  <Layers className="w-4 h-4 text-indigo-400" />
-                  Master Single-Entry Order Details
-                </CardTitle>
-                <CardDescription>Configure master order attributes, Incoterms, and ports.</CardDescription>
-              </CardHeader>
+        {/* Vertical Stacked Flow: Section 1 Data Entry Form -> Section 2 Document Previews */}
+        <div className="flex flex-col space-y-8">
+          {/* Section 1: Master Data Entry Workbench */}
+          <Card>
+            <CardHeader>
+              <CardTitle>
+                <Layers className="w-4 h-4 text-indigo-400" />
+                1. Master Single-Entry Order Details
+              </CardTitle>
+              <CardDescription>Configure master order attributes, Incoterms, and ports.</CardDescription>
+            </CardHeader>
 
-              <CardContent className="space-y-5">
-                <div className="grid grid-cols-2 gap-4 text-sm">
-                  <div>
-                    <label className="block text-xs font-medium text-slate-400 uppercase tracking-wider mb-1">
-                      Master Order Number
-                    </label>
-                    <input
-                      type="text"
-                      value={orderPayload.orderNumber}
-                      onChange={(e) => setOrderPayload({ ...orderPayload, orderNumber: e.target.value })}
-                      className="w-full px-3.5 py-2.5 bg-slate-950 border border-slate-800 rounded-xl font-mono text-indigo-300 font-bold"
-                    />
-                  </div>
-
-                  <div>
-                    <label className="block text-xs font-medium text-slate-400 uppercase tracking-wider mb-1">
-                      Incoterms
-                    </label>
-                    <select
-                      value={orderPayload.incoterms}
-                      onChange={(e) => setOrderPayload({ ...orderPayload, incoterms: e.target.value as any })}
-                      className="w-full px-3.5 py-2.5 bg-slate-950 border border-slate-800 rounded-xl text-slate-200"
-                    >
-                      <option value="CIF">CIF - Cost, Insurance & Freight</option>
-                      <option value="FOB">FOB - Free On Board</option>
-                      <option value="CFR">CFR - Cost & Freight</option>
-                      <option value="EXW">EXW - Ex Works</option>
-                      <option value="DDP">DDP - Delivered Duty Paid</option>
-                    </select>
-                  </div>
-
-                  <div>
-                    <label className="block text-xs font-medium text-slate-400 uppercase tracking-wider mb-1">
-                      Port of Loading (POL)
-                    </label>
-                    <input
-                      type="text"
-                      value={orderPayload.portOfLoading}
-                      onChange={(e) => setOrderPayload({ ...orderPayload, portOfLoading: e.target.value })}
-                      className="w-full px-3.5 py-2.5 bg-slate-950 border border-slate-800 rounded-xl text-slate-200 text-xs font-mono"
-                    />
-                  </div>
-
-                  <div>
-                    <label className="block text-xs font-medium text-slate-400 uppercase tracking-wider mb-1">
-                      Port of Discharge (POD)
-                    </label>
-                    <input
-                      type="text"
-                      value={orderPayload.portOfDischarge}
-                      onChange={(e) => setOrderPayload({ ...orderPayload, portOfDischarge: e.target.value })}
-                      className="w-full px-3.5 py-2.5 bg-slate-950 border border-slate-800 rounded-xl text-slate-200 text-xs font-mono"
-                    />
-                  </div>
+            <CardContent className="space-y-5">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+                <div>
+                  <label className="block text-xs font-medium text-slate-400 uppercase tracking-wider mb-1">
+                    Master Order Number
+                  </label>
+                  <input
+                    type="text"
+                    value={orderPayload.orderNumber}
+                    onChange={(e) => setOrderPayload({ ...orderPayload, orderNumber: e.target.value })}
+                    className="w-full px-3.5 py-2.5 bg-slate-950 border border-slate-800 rounded-xl font-mono text-indigo-300 font-bold"
+                  />
                 </div>
 
-                {/* Line Items Table */}
-                <div className="pt-3 border-t border-slate-800 space-y-3">
-                  <div className="flex items-center justify-between">
-                    <h3 className="text-xs font-semibold text-slate-300 uppercase tracking-wider">
-                      Order Line Items ({orderPayload.items.length})
-                    </h3>
-                  </div>
+                <div>
+                  <label className="block text-xs font-medium text-slate-400 uppercase tracking-wider mb-1">
+                    Incoterms
+                  </label>
+                  <select
+                    value={orderPayload.incoterms}
+                    onChange={(e) => setOrderPayload({ ...orderPayload, incoterms: e.target.value as any })}
+                    className="w-full px-3.5 py-2.5 bg-slate-950 border border-slate-800 rounded-xl text-slate-200"
+                  >
+                    <option value="CIF">CIF - Cost, Insurance & Freight</option>
+                    <option value="FOB">FOB - Free On Board</option>
+                    <option value="CFR">CFR - Cost & Freight</option>
+                    <option value="EXW">EXW - Ex Works</option>
+                    <option value="DDP">DDP - Delivered Duty Paid</option>
+                  </select>
+                </div>
 
-                  <div className="space-y-3">
-                    {orderPayload.items.map((item, idx) => (
-                      <div key={item.sku} className="bg-slate-950 border border-slate-800 rounded-xl p-4 space-y-3">
-                        <div className="flex items-center justify-between text-xs font-semibold text-slate-200">
-                          <span>{item.productName}</span>
-                          <Badge variant="indigo" size="sm">{item.sku}</Badge>
+                <div>
+                  <label className="block text-xs font-medium text-slate-400 uppercase tracking-wider mb-1">
+                    Port of Loading (POL)
+                  </label>
+                  <input
+                    type="text"
+                    value={orderPayload.portOfLoading}
+                    onChange={(e) => setOrderPayload({ ...orderPayload, portOfLoading: e.target.value })}
+                    className="w-full px-3.5 py-2.5 bg-slate-950 border border-slate-800 rounded-xl text-slate-200 text-xs font-mono"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-xs font-medium text-slate-400 uppercase tracking-wider mb-1">
+                    Port of Discharge (POD)
+                  </label>
+                  <input
+                    type="text"
+                    value={orderPayload.portOfDischarge}
+                    onChange={(e) => setOrderPayload({ ...orderPayload, portOfDischarge: e.target.value })}
+                    className="w-full px-3.5 py-2.5 bg-slate-950 border border-slate-800 rounded-xl text-slate-200 text-xs font-mono"
+                  />
+                </div>
+              </div>
+
+              {/* Line Items Table */}
+              <div className="pt-3 border-t border-slate-800 space-y-3">
+                <div className="flex items-center justify-between">
+                  <h3 className="text-xs font-semibold text-slate-300 uppercase tracking-wider">
+                    Order Line Items ({orderPayload.items.length})
+                  </h3>
+                </div>
+
+                <div className="space-y-3">
+                  {orderPayload.items.map((item, idx) => (
+                    <div key={item.sku} className="bg-slate-950 border border-slate-800 rounded-xl p-4 space-y-3">
+                      <div className="flex items-center justify-between text-xs font-semibold text-slate-200">
+                        <span>{item.productName}</span>
+                        <Badge variant="indigo" size="sm">{item.sku}</Badge>
+                      </div>
+
+                      <div className="grid grid-cols-1 md:grid-cols-3 gap-3 text-xs">
+                        <div>
+                          <label className="block text-[10px] text-slate-500 uppercase mb-1">Quantity</label>
+                          <input
+                            type="number"
+                            value={item.qty}
+                            onChange={(e) => handleQtyChange(idx, Number(e.target.value))}
+                            className="w-full px-2.5 py-1.5 bg-slate-900 border border-slate-700 rounded-lg font-mono text-white text-center font-bold"
+                          />
                         </div>
 
-                        <div className="grid grid-cols-3 gap-3 text-xs">
-                          <div>
-                            <label className="block text-[10px] text-slate-500 uppercase mb-1">Quantity</label>
-                            <input
-                              type="number"
-                              value={item.qty}
-                              onChange={(e) => handleQtyChange(idx, Number(e.target.value))}
-                              className="w-full px-2.5 py-1.5 bg-slate-900 border border-slate-700 rounded-lg font-mono text-white text-center font-bold"
-                            />
-                          </div>
+                        <div>
+                          <label className="block text-[10px] text-slate-500 uppercase mb-1">Unit Price ($)</label>
+                          <input
+                            type="number"
+                            value={item.unitPriceUsd}
+                            disabled
+                            className="w-full px-2.5 py-1.5 bg-slate-900/50 border border-slate-800 rounded-lg font-mono text-slate-400 text-center"
+                          />
+                        </div>
 
-                          <div>
-                            <label className="block text-[10px] text-slate-500 uppercase mb-1">Unit Price ($)</label>
-                            <input
-                              type="number"
-                              value={item.unitPriceUsd}
-                              disabled
-                              className="w-full px-2.5 py-1.5 bg-slate-900/50 border border-slate-800 rounded-lg font-mono text-slate-400 text-center"
-                            />
-                          </div>
-
-                          <div>
-                            <label className="block text-[10px] text-slate-500 uppercase mb-1">Line Subtotal</label>
-                            <div className="py-1.5 text-center font-mono font-bold text-emerald-400">
-                              ${(item.qty * item.unitPriceUsd).toLocaleString()}
-                            </div>
+                        <div>
+                          <label className="block text-[10px] text-slate-500 uppercase mb-1">Line Subtotal</label>
+                          <div className="py-1.5 text-center font-mono font-bold text-emerald-400">
+                            ${(item.qty * item.unitPriceUsd).toLocaleString()}
                           </div>
                         </div>
                       </div>
-                    ))}
-                  </div>
+                    </div>
+                  ))}
                 </div>
-              </CardContent>
-            </Card>
-          </div>
+              </div>
+            </CardContent>
+          </Card>
 
-          {/* Right Column: Live Auto-Generated Document Previews */}
-          <div className="lg:col-span-6 space-y-6">
-            {/* Real-time Calculation Summary Bar */}
-            <div className="bg-slate-900/90 border border-indigo-500/40 rounded-2xl p-5 shadow-xl grid grid-cols-2 md:grid-cols-4 gap-3 text-center font-mono text-xs">
-              <div className="bg-slate-950 p-3 rounded-xl border border-slate-800">
+          {/* Section 2: Real-Time Calculation Summary & Auto-Generated Document Previews */}
+          <div className="space-y-6">
+            {/* Vertical Stacked Real-time Calculation Summary Bar */}
+            <div className="bg-slate-900/90 border border-indigo-500/40 rounded-2xl p-5 shadow-xl grid grid-cols-1 md:grid-cols-4 gap-4 text-center font-mono text-xs">
+              <div className="bg-slate-950 p-4 rounded-xl border border-slate-800">
                 <span className="text-[10px] text-slate-500 block uppercase font-sans">CIF Total</span>
-                <span className="text-base font-bold text-emerald-400">${calcResult.totalCifUsd.toLocaleString()}</span>
+                <span className="text-xl font-bold text-emerald-400">${calcResult.totalCifUsd.toLocaleString()}</span>
               </div>
-              <div className="bg-slate-950 p-3 rounded-xl border border-slate-800">
+              <div className="bg-slate-950 p-4 rounded-xl border border-slate-800">
                 <span className="text-[10px] text-slate-500 block uppercase font-sans">Gross Weight</span>
-                <span className="text-base font-bold text-slate-200">{calcResult.totalGrossWeightKg} kg</span>
+                <span className="text-xl font-bold text-slate-200">{calcResult.totalGrossWeightKg} kg</span>
               </div>
-              <div className="bg-slate-950 p-3 rounded-xl border border-slate-800">
+              <div className="bg-slate-950 p-4 rounded-xl border border-slate-800">
                 <span className="text-[10px] text-slate-500 block uppercase font-sans">Volume CBM</span>
-                <span className="text-base font-bold text-indigo-300">{calcResult.totalVolumeCbm} m³</span>
+                <span className="text-xl font-bold text-indigo-300">{calcResult.totalVolumeCbm} m³</span>
               </div>
-              <div className="bg-slate-950 p-3 rounded-xl border border-slate-800">
+              <div className="bg-slate-950 p-4 rounded-xl border border-slate-800">
                 <span className="text-[10px] text-slate-500 block uppercase font-sans">Packages</span>
-                <span className="text-base font-bold text-amber-300">{calcResult.totalCartons} Cartons</span>
+                <span className="text-xl font-bold text-amber-300">{calcResult.totalCartons} Cartons</span>
               </div>
             </div>
 
             {/* Document Preview Tabs */}
             <Card>
               <CardHeader>
-                <div className="flex items-center justify-between border-b border-slate-800 pb-3 overflow-x-auto">
-                  <div className="flex gap-2 text-xs font-semibold">
+                <CardTitle>2. Live Auto-Generated Trade Documents</CardTitle>
+                <CardDescription>Select document tab to inspect synchronized single-entry outputs.</CardDescription>
+
+                <div className="flex items-center justify-between border-b border-slate-800 pt-3 pb-3 overflow-x-auto">
+                  <div className="flex flex-wrap gap-2 text-xs font-semibold">
                     <Button
                       variant={activeDocTab === 'INVOICE' ? 'primary' : 'ghost'}
                       size="sm"
@@ -287,7 +288,7 @@ export default function SingleEntryWorkbenchPage() {
 
               <CardContent>
                 {/* Tab Content Preview */}
-                <div className="bg-slate-950 border border-slate-800 rounded-xl p-5 space-y-4 font-mono text-xs">
+                <div className="bg-slate-950 border border-slate-800 rounded-xl p-6 space-y-4 font-mono text-xs">
                   {activeDocTab === 'INVOICE' && (
                     <div className="space-y-3">
                       <div className="flex justify-between border-b border-slate-800 pb-2 text-indigo-300 font-bold">
