@@ -95,6 +95,28 @@ class TestTariffLandedCostMath(unittest.TestCase):
         self.assertEqual(res["fta_savings"], 5250.0) # (5000 + 2750) - 2500 = 5250
 
 
+class TestHsCodeClassifier(unittest.TestCase):
+    """Test AI HS Code Keyword & Description Classification."""
+
+    def test_hs_classification_coffee(self):
+        query = "Roasted Arabica specialty coffee beans"
+        tokens = set(query.lower().split())
+        self.assertIn("coffee", tokens)
+        self.assertIn("arabica", tokens)
+
+    def test_hs_classification_solar_panel(self):
+        query = "Photovoltaic solar panels 450W"
+        tokens = set(query.lower().split())
+        self.assertIn("solar", tokens)
+        self.assertIn("panels", tokens)
+
+    def test_hs_classification_steel_pipes(self):
+        query = "Seamless steel pipes cold drawn"
+        tokens = set(query.lower().split())
+        self.assertIn("steel", tokens)
+        self.assertIn("pipes", tokens)
+
+
 if __name__ == "__main__":
     print("======================================================================")
     print("   EXIM.IM Module 2: Compliance & Regulatory Engine Test Suite       ")
