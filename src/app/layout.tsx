@@ -38,12 +38,13 @@ import {
   Camera,
   Key,
   Clock,
-  Bell
+  Bell,
+  Settings
 } from 'lucide-react';
 
 export const metadata = {
   title: 'EXIM.IM — Enterprise Exim Trade SaaS Platform',
-  description: 'Complete 30-Module Exim Platform with Notification Center, Workflow Automation, Export Incentive Ledger, LC UCP 600 Auditor V3, eBRC / EDPMS Reconciliation, Multi-Currency Finance, Developer API Center, Statutory Vault, and Global Trade Infrastructure.',
+  description: 'Complete 30-Module Exim Platform with Workspace Settings & Audit Logs, Notification Center, Workflow Automation, Export Incentive Ledger, LC UCP 600 Auditor V3, eBRC / EDPMS Reconciliation, Multi-Currency Finance, Developer API Center, Statutory Vault, and Global Trade Infrastructure.',
 };
 
 export default function RootLayout({
@@ -73,6 +74,18 @@ export default function RootLayout({
                 <LayoutDashboard className="w-3.5 h-3.5 text-indigo-400" />
                 Dashboard
               </Link>
+
+              {/* Module 25 Settings & Audit Logs Link */}
+              <div className="relative group">
+                <span className="px-3 py-2 rounded-lg bg-indigo-950/60 border border-indigo-800/40 hover:bg-indigo-900/60 text-indigo-300 cursor-pointer transition-colors flex items-center gap-1.5 font-bold">
+                  <Settings className="w-3.5 h-3.5 text-indigo-400" />
+                  Settings & Audit Logs
+                </span>
+                <div className="absolute left-0 mt-1 w-64 bg-slate-900 border border-slate-800 rounded-xl shadow-2xl p-2 hidden group-hover:block z-50 space-y-1">
+                  <Link href="/settings/workspace" className="block px-3 py-2 rounded-lg hover:bg-slate-800 text-xs text-slate-300">Workspace System Settings</Link>
+                  <Link href="/settings/audit-logs" className="block px-3 py-2 rounded-lg hover:bg-slate-800 text-xs text-slate-300">Security Audit Trail & Activity Logs</Link>
+                </div>
+              </div>
 
               {/* Module 24 Notifications Bell Link */}
               <div className="relative group">
@@ -163,7 +176,7 @@ export default function RootLayout({
           <div className="flex items-center gap-4 text-slate-400 font-mono text-[11px]">
             <span>100% Platform Realized (30 Modules Complete)</span>
             <span>•</span>
-            <span>Module 24 Notifications Active</span>
+            <span>Module 25 Settings & Audit Active</span>
           </div>
         </footer>
       </body>
