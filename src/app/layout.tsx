@@ -36,12 +36,13 @@ import {
   ShoppingCart,
   PackageCheck,
   Camera,
-  Key
+  Key,
+  Clock
 } from 'lucide-react';
 
 export const metadata = {
   title: 'EXIM.IM — Enterprise Exim Trade SaaS Platform',
-  description: 'Complete 30-Module Exim Platform with Export Incentive Ledger, LC UCP 600 Auditor V3, eBRC / EDPMS Reconciliation, Multi-Currency Finance, Developer API Center, Statutory Vault, and Global Trade Infrastructure.',
+  description: 'Complete 30-Module Exim Platform with Workflow Automation, Approval Triggers, Export Incentive Ledger, LC UCP 600 Auditor V3, eBRC / EDPMS Reconciliation, Multi-Currency Finance, Developer API Center, Statutory Vault, and Global Trade Infrastructure.',
 };
 
 export default function RootLayout({
@@ -71,6 +72,18 @@ export default function RootLayout({
                 <LayoutDashboard className="w-3.5 h-3.5 text-indigo-400" />
                 Dashboard
               </Link>
+
+              {/* Module 23 Workflow Automation & Approvals Links */}
+              <div className="relative group">
+                <span className="px-3 py-2 rounded-lg bg-indigo-950/60 border border-indigo-800/40 hover:bg-indigo-900/60 text-indigo-300 cursor-pointer transition-colors flex items-center gap-1.5 font-bold">
+                  <ShieldCheck className="w-3.5 h-3.5 text-indigo-400" />
+                  Workflow & Approvals
+                </span>
+                <div className="absolute left-0 mt-1 w-64 bg-slate-900 border border-slate-800 rounded-xl shadow-2xl p-2 hidden group-hover:block z-50 space-y-1">
+                  <Link href="/workflow/approvals" className="block px-3 py-2 rounded-lg hover:bg-slate-800 text-xs text-slate-300">Approval Requests & Executive Sign-Off</Link>
+                  <Link href="/workflow/reminders" className="block px-3 py-2 rounded-lg hover:bg-slate-800 text-xs text-slate-300">Automated Reminder Rules & Alerts</Link>
+                </div>
+              </div>
 
               {/* Module 22 Export Incentive Links */}
               <div className="relative group">
@@ -137,7 +150,7 @@ export default function RootLayout({
           <div className="flex items-center gap-4 text-slate-400 font-mono text-[11px]">
             <span>100% Platform Realized (30 Modules Complete)</span>
             <span>•</span>
-            <span>Module 22 Export Incentives Active</span>
+            <span>Module 23 Workflow Automation Active</span>
           </div>
         </footer>
       </body>
