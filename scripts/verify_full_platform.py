@@ -22,17 +22,17 @@ def verify_platform():
     # 1. Database Schemas
     db_dir = os.path.join(BASE_DIR, 'database')
     schemas = [f for f in os.listdir(db_dir) if f.startswith('schema_') and f.endswith('.sql')]
-    print(f"✓ Database Schemas Verified: {len(schemas)} DDL migration scripts found")
+    print(f"[OK] Database Schemas Verified: {len(schemas)} DDL migration scripts found")
 
     # 2. Engines
     lib_dir = os.path.join(BASE_DIR, 'src', 'lib')
     engines = [f for f in os.listdir(lib_dir) if f.endswith('.ts')]
-    print(f"✓ Core Services & Engines Verified: {len(engines)} TypeScript engines found")
+    print(f"[OK] Core Services & Engines Verified: {len(engines)} TypeScript engines found")
 
     # 3. Test Suites
     test_dir = os.path.join(BASE_DIR, 'tests')
     tests = [f for f in os.listdir(test_dir) if f.startswith('test_') and f.endswith('.py')]
-    print(f"✓ Automated Test Suites Verified: {len(tests)} Python test suites found")
+    print(f"[OK] Automated Test Suites Verified: {len(tests)} Python test suites found")
 
     print("\nMaster System Verification Complete: 100% Platform Realization Verified!")
     return True
