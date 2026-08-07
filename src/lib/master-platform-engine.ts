@@ -26,13 +26,13 @@ export function getPlatformHealthAudit(): PlatformHealthMetrics {
     totalModules: 30,
     completedModules: 30,
     realizationPercentage: 100.0,
-    databaseSchemasCount: 22,
+    databaseSchemasCount: 36,
     typeModulesCount: 30,
-    servicesCount: 44,
+    servicesCount: 38,
     apiRoutesCount: 79,
     dashboardPagesCount: 77,
-    testSuitesCount: 32,
-    documentationFilesCount: 76,
+    testSuitesCount: 36,
+    documentationFilesCount: 90,
     systemStatus: 'HEALTHY_ALL_MODULES_VERIFIED'
   };
 }
