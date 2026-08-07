@@ -41,12 +41,13 @@ import {
   Bell,
   Settings,
   FileBarChart,
-  Lock
+  Lock,
+  Send
 } from 'lucide-react';
 
 export const metadata = {
   title: 'EXIM.IM — Enterprise Exim Trade SaaS Platform',
-  description: 'Complete 30-Module Exim Platform with Developer API Keys V3, Webhook Subscriptions V3 (HMAC SHA-256), Security Audit Logs V2, Anomaly Alerts, Workspace Settings V2 & Branding, Scheduled Management Reports, Workspace Settings & Audit Logs, Notification Center, Workflow Automation, Export Incentive Ledger, LC UCP 600 Auditor V3, eBRC / EDPMS Reconciliation, Multi-Currency Finance, Developer API Center, Statutory Vault, and Global Trade Infrastructure.',
+  description: 'Complete 30-Module Exim Platform with Ecosystem Directory V3, Service RFQs, Developer API Keys V3, Webhook Subscriptions V3, Security Audit Logs V2, Anomaly Alerts, Workspace Settings V2 & Branding, Scheduled Management Reports, Workspace Settings & Audit Logs, Notification Center, Workflow Automation, Export Incentive Ledger, LC UCP 600 Auditor V3, eBRC / EDPMS Reconciliation, Multi-Currency Finance, Developer API Center, Statutory Vault, and Global Trade Infrastructure.',
 };
 
 export default function RootLayout({
@@ -76,6 +77,18 @@ export default function RootLayout({
                 <LayoutDashboard className="w-3.5 h-3.5 text-indigo-400" />
                 Dashboard
               </Link>
+
+              {/* Module 30 Ecosystem Directory & RFQs Links */}
+              <div className="relative group">
+                <span className="px-3 py-2 rounded-lg bg-indigo-950/60 border border-indigo-800/40 hover:bg-indigo-900/60 text-indigo-300 cursor-pointer transition-colors flex items-center gap-1.5 font-bold">
+                  <Store className="w-3.5 h-3.5 text-indigo-400" />
+                  Marketplace & Partners
+                </span>
+                <div className="absolute left-0 mt-1 w-64 bg-slate-900 border border-slate-800 rounded-xl shadow-2xl p-2 hidden group-hover:block z-50 space-y-1">
+                  <Link href="/marketplace/ecosystem-directory" className="block px-3 py-2 rounded-lg hover:bg-slate-800 text-xs text-slate-300">Vetted Ecosystem Directory V3</Link>
+                  <Link href="/marketplace/service-rfqs" className="block px-3 py-2 rounded-lg hover:bg-slate-800 text-xs text-slate-300">Service RFQs Collaboration Ledger</Link>
+                </div>
+              </div>
 
               {/* Module 29 Developer & Webhooks V3 Links */}
               <div className="relative group">
@@ -201,9 +214,9 @@ export default function RootLayout({
             &copy; 2026 EXIM.IM SaaS Platform. Enterprise Exim Multi-Tenant Infrastructure.
           </div>
           <div className="flex items-center gap-4 text-slate-400 font-mono text-[11px]">
-            <span>100% Platform Realized (30 Modules Complete)</span>
+            <span className="text-emerald-400 font-bold">100% Platform Realized (All 30 Modules Complete)</span>
             <span>•</span>
-            <span>Module 29 Developer Portal V3 Active</span>
+            <span>Module 30 Ecosystem Marketplace Active</span>
           </div>
         </footer>
       </body>
