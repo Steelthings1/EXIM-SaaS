@@ -46,7 +46,7 @@ import {
 
 export const metadata = {
   title: 'EXIM.IM — Enterprise Exim Trade SaaS Platform',
-  description: 'Complete 30-Module Exim Platform with Workspace Settings V2 & Branding, Scheduled Management Reports, Workspace Settings & Audit Logs, Notification Center, Workflow Automation, Export Incentive Ledger, LC UCP 600 Auditor V3, eBRC / EDPMS Reconciliation, Multi-Currency Finance, Developer API Center, Statutory Vault, and Global Trade Infrastructure.',
+  description: 'Complete 30-Module Exim Platform with Security Audit Logs V2, Anomaly Alerts, Workspace Settings V2 & Branding, Scheduled Management Reports, Workspace Settings & Audit Logs, Notification Center, Workflow Automation, Export Incentive Ledger, LC UCP 600 Auditor V3, eBRC / EDPMS Reconciliation, Multi-Currency Finance, Developer API Center, Statutory Vault, and Global Trade Infrastructure.',
 };
 
 export default function RootLayout({
@@ -76,6 +76,18 @@ export default function RootLayout({
                 <LayoutDashboard className="w-3.5 h-3.5 text-indigo-400" />
                 Dashboard
               </Link>
+
+              {/* Module 28 Security Telemetry Links */}
+              <div className="relative group">
+                <span className="px-3 py-2 rounded-lg bg-indigo-950/60 border border-indigo-800/40 hover:bg-indigo-900/60 text-indigo-300 cursor-pointer transition-colors flex items-center gap-1.5 font-bold">
+                  <ShieldAlert className="w-3.5 h-3.5 text-rose-400" />
+                  Security Telemetry
+                </span>
+                <div className="absolute left-0 mt-1 w-64 bg-slate-900 border border-slate-800 rounded-xl shadow-2xl p-2 hidden group-hover:block z-50 space-y-1">
+                  <Link href="/security/activity-logs" className="block px-3 py-2 rounded-lg hover:bg-slate-800 text-xs text-slate-300">Security Activity Logs V2 & Audit Trail</Link>
+                  <Link href="/security/alerts" className="block px-3 py-2 rounded-lg hover:bg-slate-800 text-xs text-slate-300">Security Anomaly Detection Alerts</Link>
+                </div>
+              </div>
 
               {/* Module 26 Complete Report Engine Links */}
               <div className="relative group">
@@ -191,7 +203,7 @@ export default function RootLayout({
           <div className="flex items-center gap-4 text-slate-400 font-mono text-[11px]">
             <span>100% Platform Realized (30 Modules Complete)</span>
             <span>•</span>
-            <span>Module 27 Workspace Settings V2 Active</span>
+            <span>Module 28 Security Telemetry Active</span>
           </div>
         </footer>
       </body>
