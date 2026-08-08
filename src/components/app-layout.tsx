@@ -33,7 +33,13 @@ import {
   ChevronRight,
   Sparkles,
   User,
-  Plus
+  Plus,
+  Boxes,
+  Shield,
+  Award,
+  BookOpen,
+  Send,
+  AlertTriangle
 } from 'lucide-react';
 
 export function AppLayout({ children }: { children: React.ReactNode }) {
@@ -41,58 +47,76 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
 
   const sidebarGroups = [
     {
-      group: "Core Infrastructure",
+      group: "Core Infrastructure & System Governance",
       items: [
-        { label: "Dashboard", href: "/", icon: LayoutDashboard },
-        { label: "Organization", href: "/settings/organization", icon: Building2 },
-        { label: "Statutory Vault", href: "/settings/statutory-vault", icon: ShieldCheck },
-        { label: "Members & RBAC", href: "/settings/members-roles", icon: Users },
-        { label: "Workspace V2", href: "/settings/workspace-v2", icon: Settings },
-        { label: "Security Logs V2", href: "/security/activity-logs", icon: Lock },
+        { label: "Dashboard Overview", href: "/", icon: LayoutDashboard },
+        { label: "Organization Profile", href: "/settings/organization", icon: Building2 },
+        { label: "Statutory Identity Vault", href: "/settings/statutory-vault", icon: ShieldCheck },
+        { label: "Branch & Warehouse Registry", href: "/settings/branches-warehouses", icon: Warehouse },
+        { label: "Members & 19 RBAC Roles", href: "/settings/members-roles", icon: Users },
+        { label: "Workspace Settings V2", href: "/settings/workspace-v2", icon: Settings },
+        { label: "Security Activity Logs V2", href: "/security/activity-logs", icon: Lock },
+        { label: "Security Anomaly Alerts", href: "/security/alerts", icon: ShieldAlert },
       ]
     },
     {
-      group: "Compliance & Banking",
+      group: "Compliance, Legal & Banking",
       items: [
-        { label: "AI HS Classifier", href: "/compliance/hs-classifier", icon: Network },
-        { label: "Landed Cost", href: "/compliance/tariff-calculator", icon: Calculator },
-        { label: "Sanctions Screener", href: "/compliance/sanctions-screening", icon: ShieldAlert },
-        { label: "Contract Audit", href: "/sales/contract-audit", icon: Scale },
-        { label: "LC UCP 600 Auditor V3", href: "/banking/lc-auditor-v3", icon: Landmark },
-        { label: "eBRC / EDPMS V3", href: "/banking/edpms-closures-v3", icon: DollarSign },
+        { label: "AI HS Code Classifier", href: "/compliance/hs-classifier", icon: Network },
+        { label: "Country Regulatory Rules", href: "/compliance/country-rules", icon: Globe },
+        { label: "Landed Cost & Tariff Calculator", href: "/compliance/tariff-calculator", icon: Calculator },
+        { label: "Fuzzy Sanctions Screener", href: "/compliance/sanctions-screening", icon: ShieldAlert },
+        { label: "CISG 1980 Legal Contract Auditor", href: "/sales/contract-audit", icon: Scale },
+        { label: "Letter of Credit UCP 600 Auditor V3", href: "/banking/lc-auditor-v3", icon: Landmark },
+        { label: "eBRC & EDPMS Closures V3", href: "/banking/edpms-closures-v3", icon: DollarSign },
+        { label: "Multi-Currency Invoices (LUT)", href: "/finance/multi-currency-invoices", icon: DollarSign },
+        { label: "Forex Realized Gain/Loss", href: "/finance/forex-treasury", icon: DollarSign },
       ]
     },
     {
-      group: "Single-Entry & Logistics",
+      group: "Single-Entry Operations & Logistics",
       items: [
-        { label: "Product Master", href: "/products/catalog", icon: Package },
+        { label: "Product Master Catalog", href: "/products/catalog", icon: Package },
+        { label: "Multi-Warehouse Inventory", href: "/inventory/stock", icon: Boxes },
         { label: "Single-Entry Workbench", href: "/documents/single-entry-workbench", icon: FileText },
-        { label: "Freight Aggregator", href: "/logistics/freight-rates", icon: Ship },
-        { label: "AIS Telemetry", href: "/logistics/ais-telemetry", icon: Globe },
-        { label: "Marine Insurance", href: "/insurance/marine-policies", icon: ShieldCheck },
+        { label: "Ocean & Air Freight Aggregator", href: "/logistics/freight-rates", icon: Ship },
+        { label: "Satellite AIS Telemetry Engine", href: "/logistics/ais-telemetry", icon: Globe },
+        { label: "Marine Cargo Insurance Engine", href: "/insurance/marine-policies", icon: Shield },
+        { label: "Container Milestones & Tracking", href: "/logistics/container-milestones", icon: Ship },
+        { label: "Pre-Shipment Inspection & QC", href: "/qc/inspections", icon: ShieldCheck },
+        { label: "Country Intelligence KB", href: "/kb/country-intelligence", icon: BookOpen },
       ]
     },
     {
-      group: "Incentives & Ecosystem",
+      group: "Incentives, Reports & Developer Ecosystem",
       items: [
-        { label: "RoDTEP Claims V3", href: "/incentives/claims-v3", icon: Sparkles },
-        { label: "Scheduled Reports", href: "/reports/templates", icon: FileBarChart },
-        { label: "Developer API V3", href: "/developer/api-keys-v3", icon: Code2 },
-        { label: "Ecosystem Directory", href: "/marketplace/ecosystem-directory", icon: Store },
+        { label: "Export Incentive Claims V3 (RoDTEP)", href: "/incentives/claims-v3", icon: Award },
+        { label: "DGFT e-Scrip Balance Ledger", href: "/incentives/escrip-ledger", icon: Award },
+        { label: "Scheduled Report Templates", href: "/reports/templates", icon: FileBarChart },
+        { label: "Generated Reports Vault", href: "/reports/vault", icon: FileBarChart },
+        { label: "Developer API Keys V3", href: "/developer/api-keys-v3", icon: Code2 },
+        { label: "Webhook Subscriptions V3", href: "/developer/webhook-subscriptions-v3", icon: Code2 },
+        { label: "Vetted Ecosystem Directory V3", href: "/marketplace/ecosystem-directory", icon: Store },
+        { label: "Service RFQs Collaboration Ledger", href: "/marketplace/service-rfqs", icon: Send },
+        { label: "In-App Notification Center", href: "/notifications/center", icon: Bell },
+        { label: "10-Dashboard Analytics Suite", href: "/analytics/suite", icon: LayoutDashboard },
       ]
     }
   ];
 
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col font-sans antialiased">
-      {/* Top Command Palette Header */}
+      {/* Sleek Top Header */}
       <header className="sticky top-0 z-40 bg-slate-950/90 backdrop-blur-md border-b border-slate-800/80 px-6 py-3 flex items-center justify-between gap-4">
         <div className="flex items-center gap-4">
           <Link href="/" className="flex items-center gap-2.5 group">
             <div className="w-8 h-8 rounded-xl bg-gradient-to-tr from-indigo-600 via-indigo-500 to-blue-500 flex items-center justify-center text-white font-black text-sm shadow-md shadow-indigo-600/30">
               EX
             </div>
-            <span className="font-extrabold text-base text-white tracking-tight">EXIM<span className="text-indigo-400">.IM</span></span>
+            <div>
+              <span className="font-extrabold text-base text-white tracking-tight">EXIM<span className="text-indigo-400">.IM</span></span>
+              <span className="block text-[10px] text-slate-400 font-mono tracking-widest uppercase">Global Trade OS</span>
+            </div>
           </Link>
 
           {/* Quick Search Bar */}
@@ -109,9 +133,9 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
           </div>
         </div>
 
-        {/* Quick Action Controls */}
+        {/* Header Action Controls */}
         <div className="flex items-center gap-3">
-          <Link href="/documents/single-entry-workbench" className="px-3 py-1.5 bg-indigo-600 hover:bg-indigo-500 text-white font-semibold text-xs rounded-xl flex items-center gap-1.5 transition-colors shadow-sm">
+          <Link href="/documents/single-entry-workbench" className="px-3.5 py-1.5 bg-indigo-600 hover:bg-indigo-500 text-white font-semibold text-xs rounded-xl flex items-center gap-1.5 transition-colors shadow-sm">
             <Plus className="w-3.5 h-3.5" />
             <span>New Order</span>
           </Link>
@@ -124,12 +148,14 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
         </div>
       </header>
 
+      {/* Main Container with Collapsible Vertical Sidebar & Monitor-Filling Workspace */}
       <div className="flex-1 flex overflow-hidden">
-        {/* Collapsible Left Sidebar */}
-        <aside className={`${collapsed ? 'w-16' : 'w-64'} bg-slate-950/80 border-r border-slate-800/80 p-4 flex flex-col justify-between transition-all duration-200 relative`}>
+        {/* Collapsible Vertical Left Navigation Sidebar */}
+        <aside className={`${collapsed ? 'w-16' : 'w-72'} bg-slate-950/90 border-r border-slate-800/80 p-4 flex flex-col justify-between transition-all duration-200 relative shrink-0`}>
           <button
             onClick={() => setCollapsed(!collapsed)}
             className="absolute -right-3 top-6 w-6 h-6 rounded-full bg-slate-900 border border-slate-800 text-slate-400 hover:text-white flex items-center justify-center z-50 shadow-md"
+            title={collapsed ? "Expand Vertical Sidebar" : "Collapse Vertical Sidebar"}
           >
             {collapsed ? <ChevronRight className="w-3.5 h-3.5" /> : <ChevronLeft className="w-3.5 h-3.5" />}
           </button>
@@ -138,7 +164,7 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
             {sidebarGroups.map((g, gIdx) => (
               <div key={gIdx} className="space-y-2">
                 {!collapsed && (
-                  <h4 className="text-[10px] font-bold text-slate-500 uppercase tracking-widest px-2">
+                  <h4 className="text-[10px] font-bold text-indigo-400/90 uppercase tracking-widest px-2">
                     {g.group}
                   </h4>
                 )}
@@ -150,7 +176,7 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
                       <Link
                         key={iIdx}
                         href={item.href}
-                        className="flex items-center gap-3 px-2.5 py-2 rounded-xl text-xs font-medium text-slate-300 hover:bg-slate-900 hover:text-white transition-colors group"
+                        className="flex items-center gap-3 px-2.5 py-2 rounded-xl text-xs font-medium text-slate-300 hover:bg-indigo-950/60 hover:text-indigo-200 border border-transparent hover:border-indigo-800/40 transition-all group"
                         title={collapsed ? item.label : undefined}
                       >
                         <IconComp className="w-4 h-4 text-slate-400 group-hover:text-indigo-400 transition-colors shrink-0" />
@@ -165,14 +191,14 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
 
           {!collapsed && (
             <div className="pt-4 border-t border-slate-800/80 text-[11px] font-mono text-slate-500 flex items-center justify-between">
-              <span>EXIM.IM Global Trade OS</span>
-              <span className="text-emerald-400 font-bold">v1.0.0</span>
+              <span>EXIM.IM Trade OS</span>
+              <span className="text-emerald-400 font-bold">30/30 Modules</span>
             </div>
           )}
         </aside>
 
-        {/* Main Content Workspace */}
-        <main className="flex-1 overflow-y-auto">
+        {/* Monitor-Filling Main Content Workspace */}
+        <main className="flex-1 overflow-y-auto bg-slate-950">
           {children}
         </main>
       </div>
